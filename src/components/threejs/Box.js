@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
-import { useFrame } from "react-three-fiber";
+import { useFrame, useThree } from "react-three-fiber";
+import * as THREE from "three";
 
 const Box = props => {
   // This reference will give us direct access to the mesh
@@ -10,7 +11,9 @@ const Box = props => {
   const [active, setActive] = useState(false);
 
   // Rotate mesh every frame, this is outside of React without overhead
-  useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+  useFrame(() => {
+    mesh.current.rotation.x = mesh.current.rotation.y += 0.01;
+  });
 
   return (
     <mesh
@@ -22,9 +25,17 @@ const Box = props => {
       onPointerOut={e => setHover(false)}
     >
       <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial
+      <meshPhysicalMaterial
         attach="material"
         color={hovered ? "hotpink" : "orange"}
+        envMap={props.envMap}
+        metalness={1}
+        roughness={0}
+        opacity={0.5}
+        side={THREE.DoubleSide}
+        transparent={true}
+        envMapIntensity={1.5}
+        premultipliedAlpha={true}
       />
     </mesh>
   );

@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Suspense } from "react";
 import { createGlobalStyle } from "styled-components";
-import MainCanvas from './components/threejs/MainCanvas';
+const MainCanvas = React.lazy(() => import("./components/threejs/MainCanvas"));
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -13,7 +12,9 @@ const GlobalStyle = createGlobalStyle`
 const App = () => (
   <>
     <GlobalStyle />
-    <MainCanvas />
+    <Suspense fallback={<div>loading...</div>}>
+      <MainCanvas />
+    </Suspense>
   </>
 );
 
