@@ -41,11 +41,17 @@ const MainCanvas = () => {
     selfElement.appendChild(renderer.domElement);
     renderer.setSize(selfElement.clientWidth, selfElement.clientHeight);
 
-    var geometry = new THREE.BoxGeometry(1, 1, 1);
-    var material = new THREE.MeshLambertMaterial({
-      color: 0xffffff,
+    var geometry = new THREE.BoxGeometry(2, 2, 2);
+    var material = new THREE.MeshPhysicalMaterial({
       envMap: skyMap,
-      refractionRatio: 0.99
+      color: 0xffffff,
+      metalness: 1,
+      roughness: 0,
+      opacity: 0.5,
+      side: THREE.BackSide,
+      transparent: true,
+      envMapIntensity: 1.5,
+      premultipliedAlpha: true
     });
     var cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
