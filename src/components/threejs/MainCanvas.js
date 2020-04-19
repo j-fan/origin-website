@@ -3,46 +3,37 @@ import styled from "styled-components";
 import * as THREE from "three";
 
 const StyledDiv = styled.div`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 `;
 
 const MainCanvas = () => {
+  let scene = useRef();
+  let skyMap = useRef();
+  let camera = useRef();
+  let renderer = useRef();
+
   useEffect(() => {
-    // === THREE.JS CODE START ===
-    var scene = new THREE.Scene();
-    var r = "https://threejs.org/examples/textures/cube/Bridge2/";
-    var urls = [
-      r + "posx.jpg",
-      r + "negx.jpg",
-      r + "posy.jpg",
-      r + "negy.jpg",
-      r + "posz.jpg",
-      r + "negz.jpg"
-    ];
-    var skyMap = new THREE.CubeTextureLoader().load(urls);
-    scene.background = skyMap;
-    skyMap.mapping = THREE.CubeRefractionMapping;
+    initScene();
+    addLights();
+    addCamera();
+    initAndAttachCanvas();
 
-    var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(100, 350, 250);
-    directionalLight.castShadow = true;
-    scene.add(directionalLight);
+    const cube = instantiateCube();
+    const animate = () => {
 
-    var camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    };
+    animate();
 
-    var selfElement = document.getElementById("mainCanvas");
-    var renderer = new THREE.WebGLRenderer();
-    selfElement.appendChild(renderer.domElement);
-    renderer.setSize(selfElement.clientWidth, selfElement.clientHeight);
+  }, []);
 
-    var geometry = new THREE.BoxGeometry(2, 2, 2);
-    var material = new THREE.MeshPhysicalMaterial({
+  const instantiateCube = () => {
+    const geometry = new THREE.BoxGeometry(2, 2, 2);
+    const material = new THREE.MeshPhysicalMaterial({
       envMap: skyMap,
       color: 0x0000ff,
       metalness: 1,
@@ -53,20 +44,69 @@ const MainCanvas = () => {
       envMapIntensity: 1.5,
       premultipliedAlpha: true
     });
-    var cube = new THREE.Mesh(geometry, material);
+    const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
+    return cube;
+  };
+
+  const resizeCanvasToDisplaySize = () => {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    if (canvas.width !== width || canvas.height !== height) {
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      canvas.style.width = window.innerWidth; 
+    }
+  }
+
+  const initScene = () => {
+    scene = new THREE.Scene();
+    const skyMapImages = "https://threejs.org/examples/textures/cube/Bridge2/";
+    const urls = [
+      skyMapImages + "posx.jpg",
+      skyMapImages + "negx.jpg",
+      skyMapImages + "posy.jpg",
+      skyMapImages + "negy.jpg",
+      skyMapImages + "posz.jpg",
+      skyMapImages + "negz.jpg"
+    ];
+    skyMap = new THREE.CubeTextureLoader().load(urls);
+    scene.background = skyMap;
+    skyMap.mapping = THREE.CubeRefractionMapping;
+  }
+
+  const addLights = () => {
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(100, 350, 250);
+    directionalLight.castShadow = true;
+    scene.add(directionalLight);
+  }
+
+  const addCamera = () => {
+    camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     camera.position.z = 5;
+  }
 
-    var animate = function() {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    };
+  const initAndAttachCanvas = () => {
+    const selfHtmlNode = document.getElementById("mainCanvas");
+    renderer = new THREE.WebGLRenderer();
+    selfHtmlNode.appendChild(renderer.domElement);
+    renderer.setSize(selfHtmlNode.clientWidth, selfHtmlNode.clientHeight);
+    const canvas = renderer.domElement;
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    window.addEventListener("resize", () => {
+      resizeCanvasToDisplaySize();
+    })
+  }
 
-    animate();
-    // === THREE.JS EXAMPLE CODE END ===
-  }, []);
   return <StyledDiv id="mainCanvas"></StyledDiv>;
 };
 
