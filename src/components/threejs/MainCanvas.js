@@ -44,11 +44,11 @@ const MainCanvas = () => {
     var geometry = new THREE.BoxGeometry(2, 2, 2);
     var material = new THREE.MeshPhysicalMaterial({
       envMap: skyMap,
-      color: 0xffffff,
+      color: 0x0000ff,
       metalness: 1,
       roughness: 0,
       opacity: 0.5,
-      side: THREE.BackSide,
+      side: THREE.DoubleSide,
       transparent: true,
       envMapIntensity: 1.5,
       premultipliedAlpha: true
