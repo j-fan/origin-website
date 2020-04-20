@@ -3,8 +3,12 @@ import styled from "styled-components";
 import * as THREE from "three";
 
 const StyledDiv = styled.div`
-  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
 `;
 
 const MainCanvas = () => {
@@ -21,14 +25,12 @@ const MainCanvas = () => {
 
     const cube = instantiateCube();
     const animate = () => {
-
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.01;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
     animate();
-
   }, []);
 
   const instantiateCube = () => {
@@ -42,7 +44,7 @@ const MainCanvas = () => {
       side: THREE.DoubleSide,
       transparent: true,
       envMapIntensity: 1.5,
-      premultipliedAlpha: true
+      premultipliedAlpha: true,
     });
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
@@ -57,9 +59,9 @@ const MainCanvas = () => {
       renderer.setSize(width, height, false);
       camera.aspect = width / height;
       camera.updateProjectionMatrix();
-      canvas.style.width = window.innerWidth; 
+      canvas.style.width = window.innerWidth;
     }
-  }
+  };
 
   const initScene = () => {
     scene = new THREE.Scene();
@@ -70,19 +72,19 @@ const MainCanvas = () => {
       skyMapImages + "posy.jpg",
       skyMapImages + "negy.jpg",
       skyMapImages + "posz.jpg",
-      skyMapImages + "negz.jpg"
+      skyMapImages + "negz.jpg",
     ];
     skyMap = new THREE.CubeTextureLoader().load(urls);
     scene.background = skyMap;
     skyMap.mapping = THREE.CubeRefractionMapping;
-  }
+  };
 
   const addLights = () => {
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(100, 350, 250);
     directionalLight.castShadow = true;
     scene.add(directionalLight);
-  }
+  };
 
   const addCamera = () => {
     camera = new THREE.PerspectiveCamera(
@@ -92,7 +94,7 @@ const MainCanvas = () => {
       1000
     );
     camera.position.z = 5;
-  }
+  };
 
   const initAndAttachCanvas = () => {
     const selfHtmlNode = document.getElementById("mainCanvas");
@@ -104,8 +106,8 @@ const MainCanvas = () => {
     canvas.style.height = "100%";
     window.addEventListener("resize", () => {
       resizeCanvasToDisplaySize();
-    })
-  }
+    });
+  };
 
   return <StyledDiv id="mainCanvas"></StyledDiv>;
 };
