@@ -16,7 +16,7 @@ Start the project with this and browse at localhost:8080
   npm start
 ```
 
-Build the project with (built files are in /dist)
+Build the project with (built files are in /docs)
 
 ```
   npm run build
