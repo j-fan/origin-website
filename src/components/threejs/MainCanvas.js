@@ -23,7 +23,8 @@ const MainCanvas = () => {
     addCamera();
     initAndAttachCanvas();
 
-    const cube = instantiateCube();
+    const cubeGeo = new THREE.BoxGeometry(2, 2, 2);
+    const cube = instantiateGeometry(cubeGeo);
     const animate = () => {
       cube.rotation.x += 0.01;
       cube.rotation.y += 0.01;
@@ -33,8 +34,7 @@ const MainCanvas = () => {
     animate();
   }, []);
 
-  const instantiateCube = () => {
-    const geometry = new THREE.BoxGeometry(2, 2, 2);
+  const instantiateGeometry = (geometry) => {
     const material = new THREE.MeshPhysicalMaterial({
       envMap: skyMap,
       color: 0x0000ff,
