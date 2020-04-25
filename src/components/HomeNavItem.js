@@ -23,39 +23,45 @@ const StyledDiv = styled.div`
     transform: scale(100%);
     cursor: pointer;
   }
-  ${(props) =>
-    props.direction == "left"
-      ? `
+  ${(props) => {
+    if (props.direction == "left") {
+      return `
         writing-mode: vertical-rl;
         left: 0;
-        height: 100%;
-      `
-      : props.direction == "right"
-      ? `
+        height: 100%;`;
+    } else if (props.direction == "right") {
+      return `
         writing-mode: sideways-lr;
         right: 0;
         height: 100%;
-        `
-      : props.direction == "bottom"
-      ? `
+        `;
+    } else if (props.direction == "bottom") {
+      return `
         transform: rotate(0deg);
         bottom: 0;
         width: 100%;
-      `
-      : `
-        transform: rotate(180deg);
+      `;
+    } else if (props.direction == "top") {
+      return `
+        rotate: 180deg;
         top: 0;
         width: 100%;
-      `}
+      `;
+    }
+  }}
 `;
 
-const HomeNavItem = ({ text, action, direction, isVisible }) => {
-  return <StyledDiv direction={direction}>{text}</StyledDiv>;
+const HomeNavItem = ({ text, onClick, direction, isVisible }) => {
+  return (
+    <StyledDiv onClick={onClick} direction={direction}>
+      {text}
+    </StyledDiv>
+  );
 };
 
 HomeNavItem.propTypes = {
   text: PropTypes.string.isRequired,
-  action: PropTypes.func,
+  onClick: PropTypes.func,
   direction: PropTypes.string.isRequired,
   isVisible: PropTypes.bool.isRequired, // do a jump in/out animation like https://www.imdsg.ch/
 };
