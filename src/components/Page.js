@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const StyledMotionDiv = styled(motion.div)`
-  background-color: #000;
+  background-color: #111;
   color: #fff;
   height: 100vh;
   width: 100vw;
@@ -13,25 +13,50 @@ const StyledMotionDiv = styled(motion.div)`
   left: 0;
 `;
 
-const animationState = {
-  active: { opacity: 1, x: 0 },
-  inactive: { opacity: 0, x: "-100%" },
+const InnerDiv = styled.div`
+  background-color: #181818;
+  margin: 40px;
+  border: solid 1px #222;
+  height: calc(100% - 80px);
+`;
+
+const animationStates = {
+  left: {
+    active: { x: 0 },
+    inactive: { x: "-100%" },
+  },
+  right: {
+    active: { x: 0 },
+    inactive: { x: "100%" },
+  },
+  top: {
+    active: { y: 0 },
+    inactive: { y: "-100%" },
+  },
+  bottom: {
+    active: { y: 0 },
+    inactive: { y: "100%" },
+  },
 };
 
 const Page = ({ direction, isVisible, children }) => {
-  return (
-    <StyledMotionDiv
-      initial={false}
-      animate={isVisible ? "active" : "inactive"}
-      variants={animationState}
-      transition={{
-        duration: 0.5,
-        ease: "easeInOut",
-      }}
-    >
-      {children}
-    </StyledMotionDiv>
-  );
+  if (direction in animationStates) {
+    const animationState = animationStates[direction];
+    return (
+      <StyledMotionDiv
+        initial={false}
+        animate={isVisible ? "active" : "inactive"}
+        variants={animationState}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+        }}
+      >
+        <InnerDiv>{children}</InnerDiv>
+      </StyledMotionDiv>
+    );
+  }
+  return null;
 };
 
 Page.propTypes = {

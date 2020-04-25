@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { space_xs, hover_resize, font_m } from "../AppGlobalStyle";
+import { motion } from "framer-motion";
 
-const StyledDiv = styled.div`
+const StyledDiv = styled(motion.div)`
   text-transform: uppercase;
   position: absolute;
   display: flex;
@@ -43,7 +44,6 @@ const StyledDiv = styled.div`
       `;
     } else if (props.direction == "top") {
       return `
-        rotate: 180deg;
         top: 0;
         width: 100%;
       `;
@@ -51,19 +51,52 @@ const StyledDiv = styled.div`
   }}
 `;
 
+const animationStates = {
+  left: {
+    active: { x: 0, delay: 0.3 },
+    inactive: { x: "-100%" },
+  },
+  right: {
+    active: { x: 0, delay: 0.3 },
+    inactive: { x: "100%" },
+  },
+  top: {
+    active: { y: 0, delay: 0.3 },
+    inactive: { y: "-100%" },
+  },
+  bottom: {
+    active: { y: 0, delay: 0.3 },
+    inactive: { y: "100%" },
+  },
+};
+
 const HomeNavItem = ({ text, onClick, direction, isVisible }) => {
-  return (
-    <StyledDiv onClick={onClick} direction={direction}>
-      {text}
-    </StyledDiv>
-  );
+  if (direction in animationStates) {
+    const animationState = animationStates[direction];
+    return (
+      <StyledDiv
+        initial={false}
+        animate={isVisible ? "active" : "inactive"}
+        variants={animationState}
+        transition={{
+          ease: "backOut",
+          duration: 0.5,
+        }}
+        onClick={onClick}
+        direction={direction}
+      >
+        {text}
+      </StyledDiv>
+    );
+  }
+  return null;
 };
 
 HomeNavItem.propTypes = {
   text: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   direction: PropTypes.string.isRequired,
-  isVisible: PropTypes.bool.isRequired, // do a jump in/out animation like https://www.imdsg.ch/
+  isVisible: PropTypes.bool.isRequired,
 };
 
 export default HomeNavItem;
