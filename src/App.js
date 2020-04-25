@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { createGlobalStyle } from "styled-components";
 import Home from "./pages/Home";
 import MainCanvas from "./components/threejs/MainCanvas";
@@ -12,6 +11,9 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     overflow: hidden;
     position: relative;
+    top: 0;
+    left: 0;
+    background-color: #000;
   }
   #App {
     height: 100%;

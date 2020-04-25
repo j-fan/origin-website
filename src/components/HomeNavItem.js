@@ -27,19 +27,17 @@ const StyledDiv = styled(motion.div)`
   ${(props) => {
     if (props.direction == "left") {
       return `
-        writing-mode: vertical-rl;
+        writing-mode: vertical-lr;
         left: 0;
         height: 100%;`;
     } else if (props.direction == "right") {
       return `
-        writing-mode: vertical-rl;
+        writing-mode: vertical-lr;
         right: 0;
         height: 100%;
-        rotate: 180deg;
         `;
     } else if (props.direction == "bottom") {
       return `
-        transform: rotate(0deg);
         bottom: 0;
         width: 100%;
       `;

@@ -6,7 +6,6 @@ import Gallery from "./Gallery";
 import About from "./About";
 
 const StyledDiv = styled.div`
-  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
