@@ -32,9 +32,10 @@ const StyledDiv = styled(motion.div)`
         height: 100%;`;
     } else if (props.direction == "right") {
       return `
-        writing-mode: sideways-lr;
+        writing-mode: vertical-rl;
         right: 0;
         height: 100%;
+        rotate: 180deg;
         `;
     } else if (props.direction == "bottom") {
       return `

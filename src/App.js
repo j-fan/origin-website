@@ -8,9 +8,10 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     font-family: sans-serif;
     margin: 0;
-    height:100vh;
-    width: 100vw;
-    overflow: hidden
+    height:100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
   }
   #App {
     height: 100%;
