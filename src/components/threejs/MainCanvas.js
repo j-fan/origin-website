@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import * as THREE from "three";
+import { OBJLoader2 } from "three/examples/jsm/loaders/OBJLoader2";
 
 const StyledDiv = styled.div`
   overflow: hidden;
@@ -16,39 +17,52 @@ const MainCanvas = () => {
   let skyMap = useRef();
   let camera = useRef();
   let renderer = useRef();
+  let originLogo = useRef();
 
   useEffect(() => {
     initScene();
     addLights();
     addCamera();
     initAndAttachCanvas();
-
-    const cubeGeo = new THREE.BoxGeometry(2, 2, 2);
-    const cube = instantiateGeometry(cubeGeo);
+    loadOriginLogo();
     const animate = () => {
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      if (originLogo.rotation != null) {
+        originLogo.rotation.x += 0.01;
+        originLogo.rotation.y += 0.01;
+      }
+
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
     animate();
   }, []);
 
-  const instantiateGeometry = (geometry) => {
-    const material = new THREE.MeshPhysicalMaterial({
+  const loadOriginLogo = () => {
+    const originLogoMaterial = new THREE.MeshPhysicalMaterial({
       envMap: skyMap,
-      color: 0x0000ff,
-      metalness: 1,
+      color: 0xffffff,
+      metalness: 0.1,
       roughness: 0,
-      opacity: 0.5,
+      opacity: 1,
       side: THREE.DoubleSide,
-      transparent: true,
-      envMapIntensity: 1.5,
+      transparent: false,
+      envMapIntensity: 3,
       premultipliedAlpha: true,
     });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-    return cube;
+
+    const objLoader = new OBJLoader2();
+    objLoader.load("resources/origin.obj", (object) => {
+      object.traverse(function (child) {
+        if (child instanceof THREE.Mesh) {
+          child.material = originLogoMaterial;
+          child.scale.x = 1.5;
+          child.scale.y = 1.5;
+          child.scale.z = 1.5;
+        }
+      });
+      originLogo = object;
+      scene.add(object);
+    });
   };
 
   const resizeCanvasToDisplaySize = () => {
@@ -65,14 +79,14 @@ const MainCanvas = () => {
 
   const initScene = () => {
     scene = new THREE.Scene();
-    const skyMapImages = "https://threejs.org/examples/textures/cube/Bridge2/";
+    const skyMapImages = "img/dark-s_";
     const urls = [
-      skyMapImages + "posx.jpg",
-      skyMapImages + "negx.jpg",
-      skyMapImages + "posy.jpg",
-      skyMapImages + "negy.jpg",
-      skyMapImages + "posz.jpg",
-      skyMapImages + "negz.jpg",
+      skyMapImages + "px.jpg",
+      skyMapImages + "nx.jpg",
+      skyMapImages + "py.jpg",
+      skyMapImages + "ny.jpg",
+      skyMapImages + "pz.jpg",
+      skyMapImages + "nz.jpg",
     ];
     skyMap = new THREE.CubeTextureLoader().load(urls);
     scene.background = skyMap;

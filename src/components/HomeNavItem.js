@@ -12,7 +12,7 @@ const StyledDiv = styled(motion.div)`
   user-select: none;
   padding: ${space_xs};
   font-weight: bold;
-  color: #ccc;
+  color: #fff;
   font-size: ${font_m};
 
   &:hover {
@@ -79,7 +79,7 @@ const HomeNavItem = ({ text, onClick, direction, isVisible }) => {
         animate={isVisible ? "active" : "inactive"}
         variants={animationState}
         transition={{
-          ease: "backOut",
+          ease: "backIn",
           duration: 0.5,
         }}
         onClick={onClick}

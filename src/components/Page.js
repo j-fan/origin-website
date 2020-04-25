@@ -14,9 +14,8 @@ const StyledMotionDiv = styled(motion.div)`
 `;
 
 const InnerDiv = styled.div`
-  background-color: #181818;
   margin: 40px;
-  border: solid 1px #222;
+  border: solid 1px #333;
   height: calc(100% - 80px);
 `;
 
