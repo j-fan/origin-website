@@ -30,15 +30,17 @@ const MainCanvas = () => {
 
   useEffect(() => {
     initScene();
-    addLights();
-    addCamera();
     initAndAttachCanvas();
+    addCamera();
     loadOriginLogo();
+    loadPlane();
+    addLights();
+
     const animate = () => {
       originLogoArray.current.forEach((originLogo) => {
-        noiseXoffset += 0.0003;
-        noiseYoffset += 0.0003;
-        noiseZoffset += 0.0003;
+        noiseXoffset += 0.0002;
+        noiseYoffset += 0.0002;
+        noiseZoffset += 0.0002;
         const noise = noise3D(
           (originLogo.position.x + noiseXoffset) * noiseScale,
           (originLogo.position.y + noiseYoffset) * noiseScale,
@@ -49,16 +51,37 @@ const MainCanvas = () => {
         originLogo.rotation.z = Math.sin(noise * Math.PI * 2);
       });
 
+      camera.rotation.z += 0.001;
+
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
     animate();
   }, []);
 
+  const loadPlane = () => {
+    const planeMaterial = new THREE.MeshPhysicalMaterial({
+      envMap: skyMap,
+      color: 0x111111,
+      metalness: 0,
+      roughness: 0.6,
+      opacity: 1,
+      side: THREE.DoubleSide,
+      transparent: false,
+      envMapIntensity: 3,
+      premultipliedAlpha: true,
+    });
+    const geometry = new THREE.PlaneBufferGeometry(40, 40);
+    const planeMesh = new THREE.Mesh(geometry, planeMaterial);
+    planeMesh.position.z = -1;
+    planeMesh.receiveShadow = true;
+    scene.add(planeMesh);
+  };
+
   const loadOriginLogo = () => {
     const originLogoMaterial = new THREE.MeshPhysicalMaterial({
       envMap: skyMap,
-      color: 0xffffff,
+      color: 0x333333,
       metalness: 0,
       roughness: 0,
       opacity: 1,
@@ -73,14 +96,13 @@ const MainCanvas = () => {
       object.traverse((child) => {
         if (child instanceof THREE.Mesh) {
           child.material = originLogoMaterial;
-          child.scale.x = 0.2;
-          child.scale.y = 0.2;
-          child.scale.z = 0.2;
+          child.scale.set(0.25, 0.25, 0.25);
+          child.castShadow = true;
         }
       });
 
-      const gridSize = 10;
-      const spacing = 0.6;
+      const gridSize = 11;
+      const spacing = 0.8;
       for (let i = 0; i < gridSize; i += 1) {
         for (let j = 0; j < gridSize; j += 1) {
           const instance = object.clone();
@@ -93,7 +115,6 @@ const MainCanvas = () => {
           originLogoArray.current.push(instance);
         }
       }
-      // scene.add(object);
     });
   };
 
@@ -126,15 +147,6 @@ const MainCanvas = () => {
   };
 
   const addLights = () => {
-    // const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    // directionalLight.position.set(100, 350, 250);
-    // directionalLight.castShadow = true;
-    // scene.add(directionalLight);
-
-    // const ambientLight = new THREE.AmbientLight(0x1f4760, 1);
-    // ambientLight.castShadow = true;
-    // scene.add(ambientLight);
-
     const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
     hemiLight.color.setHSL(0.6, 1, 0.6);
     hemiLight.groundColor.setHSL(0.095, 1, 0.75);
@@ -142,20 +154,40 @@ const MainCanvas = () => {
     scene.add(hemiLight);
 
     RectAreaLightUniformsLib.init();
-    const rectLight = new THREE.RectAreaLight(0xffffff, 2, 5, 5);
-    rectLight.position.set(0, 5, 0);
-    rectLight.rotateX(-90);
+    const rectLight = new THREE.RectAreaLight(0xffffff, 10, 5, 5);
+    rectLight.position.set(5, 15, 10);
+    rectLight.rotateX(-45);
     scene.add(rectLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6, 100);
+    directionalLight.position.set(0, 5, 10);
+    scene.add(directionalLight);
+    directionalLight.castShadow = true;
+    directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.height = 256;
+    directionalLight.shadow.mapSize.wdith = 256;
+    directionalLight.shadow.camera = new THREE.OrthographicCamera(
+      -6,
+      6,
+      6,
+      -6,
+      8,
+      20
+    );
+    // const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
+    // scene.add(cameraHelper);
   };
 
   const addCamera = () => {
     camera = new THREE.PerspectiveCamera(
-      75,
+      65,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-    camera.position.z = 5;
+    // camera.position.set(-1.5, -4, 2);
+    // camera.rotation.set(0.5, 0, 0.5);
+    camera.position.set(-0.3, 0, 3.5);
   };
 
   const initAndAttachCanvas = () => {
@@ -163,6 +195,9 @@ const MainCanvas = () => {
     renderer = new THREE.WebGLRenderer();
     selfHtmlNode.appendChild(renderer.domElement);
     renderer.setSize(selfHtmlNode.clientWidth, selfHtmlNode.clientHeight);
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
     const canvas = renderer.domElement;
     canvas.style.width = "100%";
     canvas.style.height = "100%";

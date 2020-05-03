@@ -14,6 +14,7 @@ const StyledDiv = styled(motion.div)`
   font-weight: bold;
   color: #fff;
   font-size: ${font_m};
+  pointer-events: auto;
 
   &:hover {
     /* try a stripey loading bar anim?*/
