@@ -4,6 +4,15 @@ import * as THREE from "three";
 import { OBJLoader2 } from "three/examples/jsm/loaders/OBJLoader2";
 import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
 import { makeNoise3D } from "open-simplex-noise";
+import {
+  EffectComposer,
+  EffectPass,
+  RenderPass,
+  NoiseEffect,
+  BlendFunction,
+  ChromaticAberrationEffect,
+} from "postprocessing";
+import { Clock } from "three";
 
 const StyledDiv = styled.div`
   overflow: hidden;
@@ -22,6 +31,8 @@ const MainCanvas = () => {
   let camera = useRef();
   let renderer = useRef();
   let originLogoArray = useRef([]);
+  let clock = useRef();
+  let composer = useRef();
 
   let noiseXoffset = 0;
   let noiseYoffset = 0;
@@ -35,6 +46,7 @@ const MainCanvas = () => {
     loadOriginLogo();
     loadPlane();
     addLights();
+    addPostProcessing();
 
     const animate = () => {
       originLogoArray.current.forEach((originLogo) => {
@@ -53,11 +65,31 @@ const MainCanvas = () => {
 
       camera.rotation.z += 0.001;
 
-      renderer.render(scene, camera);
+      composer.render(clock.getDelta());
+      // renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
     animate();
   }, []);
+
+  const addPostProcessing = () => {
+    composer = new EffectComposer(renderer);
+
+    const noiseEffect = new NoiseEffect({
+      blendFunction: BlendFunction.COLOR_DODGE,
+    });
+    noiseEffect.blendMode.opacity.value = 0.05;
+
+    const chromaticAbberationEffect = new ChromaticAberrationEffect({
+      offset: new THREE.Vector2(0.001, 0.003),
+    });
+
+    composer.addPass(new RenderPass(scene, camera));
+    composer.addPass(new EffectPass(camera, noiseEffect));
+    composer.addPass(new EffectPass(camera, chromaticAbberationEffect));
+
+    clock = new Clock();
+  };
 
   const loadPlane = () => {
     const planeMaterial = new THREE.MeshPhysicalMaterial({
@@ -81,7 +113,7 @@ const MainCanvas = () => {
   const loadOriginLogo = () => {
     const originLogoMaterial = new THREE.MeshPhysicalMaterial({
       envMap: skyMap,
-      color: 0x333333,
+      color: 0x252525,
       metalness: 0,
       roughness: 0,
       opacity: 1,
