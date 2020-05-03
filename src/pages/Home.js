@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import HomeNavItem from "../components/HomeNavItem";
+import HomeTitle from "../components/HomeTitle";
 import Events from "./Events";
 import Gallery from "./Gallery";
 import About from "./About";
@@ -75,6 +76,7 @@ const Home = () => {
       <About isVisible={isCurrentScreen(screens.about)} direction="left" />
       <Gallery isVisible={isCurrentScreen(screens.gallery)} direction="right" />
       <Events isVisible={isCurrentScreen(screens.events)} direction="bottom" />
+      <HomeTitle />
     </>
   );
 };

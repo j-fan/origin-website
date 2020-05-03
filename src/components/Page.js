@@ -11,6 +11,7 @@ const StyledMotionDiv = styled(motion.div)`
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 98;
 `;
 
 const InnerDiv = styled.div`
