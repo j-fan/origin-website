@@ -5,7 +5,8 @@ import MainCanvas from "./components/threejs/MainCanvas";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
-    font-family: sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;500&display=swap');
+    font-family: 'Noto Sans JP', sans-serif;
     margin: 0;
     height:100%;
     width: 100%;
@@ -18,6 +19,13 @@ const GlobalStyle = createGlobalStyle`
   #App {
     height: 100%;
     width: 100%;   
+  }
+  p {
+    line-height: 1.6;
+    font-weight: 100;
+  }
+  a {
+    color: #fff;
   }
 `;
 

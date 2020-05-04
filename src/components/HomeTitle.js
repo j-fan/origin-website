@@ -19,25 +19,24 @@ const Centre = styled.div`
   display: flex;
   @media ${device.mobileS} {
     h1 {
-      font-size: 36px;
+      font-size: 42px;
     }
     h3 {
       text-align: center;
+      font-size: 16px;
     }
     img {
-      width: 80px;
-      height: 80px;
+      width: 75px;
+      height: 75px;
     }
   }
 
   @media ${device.laptop} {
     h1 {
-      font-size: 72px;
+      font-size: 80px;
     }
     h3 {
-      font-size: 32px;
-      padding-right: 8px;
-      text-align: right;
+      font-size: 28px;
     }
     img {
       width: 140px;
@@ -54,6 +53,8 @@ const Centre = styled.div`
     text-transform: uppercase;
     color: #000;
     background-color: #fff;
+    text-align: right;
+    padding-right: 8px;
   }
 `;
 

@@ -133,7 +133,7 @@ const MainCanvas = () => {
         }
       });
 
-      const gridSize = 11;
+      const gridSize = 12;
       const spacing = 0.8;
       for (let i = 0; i < gridSize; i += 1) {
         for (let j = 0; j < gridSize; j += 1) {
