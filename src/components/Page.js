@@ -34,25 +34,29 @@ const StyledMotionDiv = styled(motion.div)`
     margin: 0;
   }
 
-  h2,
-  h3 {
+  h2 {
+    color: #000;
+    background-color: #fff;
     text-transform: uppercase;
-    -webkit-text-stroke: 1px white;
-    -webkit-text-fill-color: transparent;
+    padding: 0 8px;
   }
 `;
 
 const InnerDiv = styled.div`
   @media ${device.mobileS} {
+    width: 100%;
     margin: 0 40px;
     .scrollable {
       margin-right: 0px;
     }
   }
 
+  @media ${device.tablet} {
+    width: 50%;
+  }
+
   height: calc(100% - 80px);
   overflow: hidden;
-  max-width: 600px;
   .scrollable {
     overflow-y: scroll;
     overflow-x: hidden;
