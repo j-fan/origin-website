@@ -13,6 +13,9 @@ const StyledMotionDiv = styled(motion.div)`
   top: 0;
   left: 0;
   z-index: 98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media ${device.mobileS} {
     h1 {
       font-size: 40px;
@@ -41,15 +44,22 @@ const StyledMotionDiv = styled(motion.div)`
 
 const InnerDiv = styled.div`
   @media ${device.mobileS} {
-    margin: 40px;
-    height: calc(100% - 80px);
-  }
-  @media ${device.laptop} {
-    margin: 80px 400px;
-    height: calc(100% - 80px);
+    margin: 0 40px;
+    .scrollable {
+      margin-right: 0px;
+    }
   }
 
-  overflow-y: scroll;
+  height: calc(100% - 80px);
+  overflow: hidden;
+  max-width: 600px;
+  .scrollable {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 600px;
+    height: 100%;
+    margin-right: -20px;
+  }
 `;
 
 const animationStates = {
@@ -84,7 +94,9 @@ const Page = ({ direction, isVisible, children }) => {
           ease: "easeInOut",
         }}
       >
-        <InnerDiv>{children}</InnerDiv>
+        <InnerDiv>
+          <div className="scrollable">{children}</div>
+        </InnerDiv>
       </StyledMotionDiv>
     );
   }
