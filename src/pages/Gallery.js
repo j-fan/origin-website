@@ -6,6 +6,7 @@ const Gallery = ({ isVisible, direction }) => {
   return (
     <Page isVisible={isVisible} direction={direction}>
       <h1>Gallery</h1>
+      <p>Coming soon!</p>
     </Page>
   );
 };

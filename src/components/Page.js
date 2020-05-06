@@ -56,8 +56,9 @@ const InnerDiv = styled.div`
   .scrollable {
     overflow-y: scroll;
     overflow-x: hidden;
-    max-width: 600px;
     height: 100%;
+    width: 100%;
+    padding-right: 20px;
     margin-right: -20px;
   }
 `;
