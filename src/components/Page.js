@@ -38,7 +38,7 @@ const StyledMotionDiv = styled(motion.div)`
     color: #000;
     background-color: #fff;
     text-transform: uppercase;
-    padding: 0 8px;
+    padding: 4px 4px 2px 4px;
   }
 `;
 
