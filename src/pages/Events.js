@@ -34,10 +34,10 @@ const Events = ({ isVisible, direction }) => {
     <Page isVisible={isVisible} direction={direction}>
       <h1>Events</h1>
       <Event
-        eventName={"Origin: Virtual"}
+        eventName={"Origin (Virtual)"}
         location={"Online"}
         date={"24.06.20 @ 6pm - 05/07/2020"}
-        description={`Online: Online will be a interactive web based exhibition to be 
+        description={`Online (Virtual) will be a interactive web based exhibition to be 
           hosted here and on the Kudos Gallery website. This exhibition will feature artworks
           that will push the boundaries of websites as a medium, including
           artificial intelligence, generative art and audiovisual installations in virtual space,
@@ -45,7 +45,7 @@ const Events = ({ isVisible, direction }) => {
         `}
       />
       <Event
-        eventName={"Origin: Parallels"}
+        eventName={"Origin (Parallels)"}
         location={"Kudos Gallery"}
         date={"Late 2020"}
         description={`Origin (Parallels) will be the second iteration of an ongoing series pioneered by a growing 
