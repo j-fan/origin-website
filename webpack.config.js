@@ -23,5 +23,6 @@ module.exports = {
   devServer: {
     contentBase: "./docs",
     hot: true,
+    historyApiFallback: true,
   },
 };

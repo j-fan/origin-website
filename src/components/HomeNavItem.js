@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { space_xs, hover_resize, font_m } from "../AppGlobalStyle";
 import { motion } from "framer-motion";
+import { Link } from "@reach/router";
 
 const StyledDiv = styled(motion.div)`
   text-transform: uppercase;
@@ -70,23 +71,25 @@ const animationStates = {
   },
 };
 
-const HomeNavItem = ({ text, onClick, direction, isVisible }) => {
+const HomeNavItem = ({ text, onClick, direction, isVisible, to }) => {
   if (direction in animationStates) {
     const animationState = animationStates[direction];
     return (
-      <StyledDiv
-        initial={false}
-        animate={isVisible ? "active" : "inactive"}
-        variants={animationState}
-        transition={{
-          ease: "backIn",
-          duration: 0.5,
-        }}
-        onClick={onClick}
-        direction={direction}
-      >
-        {text}
-      </StyledDiv>
+      <Link to={to}>
+        <StyledDiv
+          initial={false}
+          animate={isVisible ? "active" : "inactive"}
+          variants={animationState}
+          transition={{
+            ease: "backIn",
+            duration: 0.5,
+          }}
+          onClick={onClick}
+          direction={direction}
+        >
+          {text}
+        </StyledDiv>
+      </Link>
     );
   }
   return null;
@@ -97,6 +100,7 @@ HomeNavItem.propTypes = {
   onClick: PropTypes.func.isRequired,
   direction: PropTypes.string.isRequired,
   isVisible: PropTypes.bool.isRequired,
+  to: PropTypes.string.isRequired,
 };
 
 export default HomeNavItem;

@@ -5,6 +5,8 @@ import HomeTitle from "../components/HomeTitle";
 import Events from "./Events";
 import Gallery from "./Gallery";
 import About from "./About";
+import { Router, Location } from "@reach/router";
+import { AnimatePresence } from "framer-motion";
 
 const StyledDiv = styled.div`
   position: absolute;
@@ -31,24 +33,28 @@ const HomeScreenOverlay = ({ setScreen, isCurrentScreen }) => {
         direction="top"
         onClick={setScreen(screens.home)}
         isVisible={!isCurrentScreen(screens.home)}
+        to="/"
       />
       <HomeNavItem
         text="Events"
         direction="bottom"
         onClick={setScreen(screens.events)}
         isVisible={!isCurrentScreen(screens.events)}
+        to="/events"
       />
       <HomeNavItem
         text="About"
         direction="left"
         onClick={setScreen(screens.about)}
         isVisible={!isCurrentScreen(screens.about)}
+        to="about"
       />
       <HomeNavItem
         text="Gallery"
         direction="right"
         onClick={setScreen(screens.gallery)}
         isVisible={!isCurrentScreen(screens.gallery)}
+        to="gallery"
       />
     </StyledDiv>
   );
@@ -68,16 +74,36 @@ const Home = () => {
   };
 
   return (
-    <>
-      <HomeScreenOverlay
-        setScreen={setScreen}
-        isCurrentScreen={isCurrentScreen}
-      />
-      <About isVisible={isCurrentScreen(screens.about)} direction="left" />
-      <Gallery isVisible={isCurrentScreen(screens.gallery)} direction="right" />
-      <Events isVisible={isCurrentScreen(screens.events)} direction="bottom" />
-      <HomeTitle />
-    </>
+    <Location>
+      {({ location }) => (
+        <>
+          <HomeScreenOverlay
+            setScreen={setScreen}
+            isCurrentScreen={isCurrentScreen}
+          />
+          <AnimatePresence>
+            <Router location={location} key={location.pathname}>
+              <About
+                isVisible={isCurrentScreen(screens.about)}
+                direction="left"
+                path="/about"
+              />
+              <Gallery
+                isVisible={isCurrentScreen(screens.gallery)}
+                direction="right"
+                path="/gallery"
+              />
+              <Events
+                isVisible={isCurrentScreen(screens.events)}
+                direction="bottom"
+                path="/events"
+              />
+            </Router>
+          </AnimatePresence>
+          <HomeTitle />
+        </>
+      )}
+    </Location>
   );
 };
 

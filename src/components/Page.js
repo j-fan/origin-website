@@ -91,8 +91,9 @@ const Page = ({ direction, isVisible, children }) => {
     const animationState = animationStates[direction];
     return (
       <StyledMotionDiv
-        initial={false}
-        animate={isVisible ? "active" : "inactive"}
+        initial="inactive"
+        animate="active"
+        exit="inactive"
         variants={animationState}
         transition={{
           duration: 0.3,
