@@ -5,6 +5,7 @@ import HomeTitle from "../components/HomeTitle";
 import Events from "./Events";
 import Gallery from "./Gallery";
 import About from "./About";
+import Radio from "./Radio";
 import { Router, Location } from "@reach/router";
 import { AnimatePresence } from "framer-motion";
 
@@ -97,6 +98,11 @@ const Home = () => {
                 isVisible={isCurrentScreen(screens.events)}
                 direction="bottom"
                 path="/events"
+              />
+              <Radio
+                isVisible={isCurrentScreen(screens.events)}
+                direction="bottom"
+                path="/radio"
               />
             </Router>
           </AnimatePresence>
