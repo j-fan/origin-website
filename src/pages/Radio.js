@@ -18,7 +18,7 @@ const Radio = ({ isVisible, direction }) => {
           <source
             autoplay
             crossorigin="anonymous"
-            src="http://139.218.99.233:3141/radio/8000/radio.mp3?1589614808"
+            src="http://radio.originart.xyz/radio/8000/radio.mp3?1589621110"
             type="audio/mpeg"
           />
           Your browser does not support the audio element.
