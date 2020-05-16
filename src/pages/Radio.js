@@ -17,6 +17,7 @@ const Radio = ({ isVisible, direction }) => {
         <audio controls>
           <source
             autoplay
+            crossorigin="anonymous"
             src="http://139.218.99.233:3141/radio/8000/radio.mp3?1589614808"
             type="audio/mpeg"
           />
