@@ -26,13 +26,13 @@ const StyledDiv = styled.div`
 const noise3D = makeNoise3D(900);
 
 const MainCanvas = () => {
-  let scene = useRef();
-  let skyMap = useRef();
-  let camera = useRef();
-  let renderer = useRef();
-  let originLogoArray = useRef([]);
-  let clock = useRef();
-  let composer = useRef();
+  let scene;
+  let skyMap;
+  let camera;
+  let renderer;
+  let originLogoArray = [];
+  let clock;
+  let composer;
 
   let noiseXoffset = 0;
   let noiseYoffset = 0;
@@ -49,7 +49,7 @@ const MainCanvas = () => {
     addPostProcessing();
 
     const animate = () => {
-      originLogoArray.current.forEach((originLogo) => {
+      originLogoArray.forEach((originLogo) => {
         noiseXoffset += 0.0002;
         noiseYoffset += 0.0002;
         noiseZoffset += 0.0002;
@@ -144,7 +144,7 @@ const MainCanvas = () => {
             0
           );
           scene.add(instance);
-          originLogoArray.current.push(instance);
+          originLogoArray.push(instance);
         }
       }
     });
@@ -174,7 +174,7 @@ const MainCanvas = () => {
       skyMapImages + "nz.jpg",
     ];
     skyMap = new THREE.CubeTextureLoader().load(urls);
-    scene.background = new THREE.Color(0xccccdc); //skyMap;
+    scene.background = new THREE.Color(0xccccdc);
     skyMap.mapping = THREE.CubeRefractionMapping;
   };
 
@@ -224,7 +224,7 @@ const MainCanvas = () => {
 
   const initAndAttachCanvas = () => {
     const selfHtmlNode = document.getElementById("mainCanvas");
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({ antialias: true });
     selfHtmlNode.appendChild(renderer.domElement);
     renderer.setSize(selfHtmlNode.clientWidth, selfHtmlNode.clientHeight);
     renderer.shadowMap.enabled = true;
