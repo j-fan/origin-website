@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
 const App = () => (
   <>
     <GlobalStyle />
-    <MainCanvas />
+    {/* <MainCanvas /> */}
     <Home />
   </>
 );

@@ -52,7 +52,7 @@ const InnerDiv = styled.div`
   }
 
   @media ${device.tablet} {
-    width: 50%;
+    width: 70%;
   }
 
   height: calc(100% - 80px);

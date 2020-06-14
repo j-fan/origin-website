@@ -4,7 +4,7 @@ export const hover_resize = "110%";
 
 export const font_m = "20px";
 
-const size = {
+export const size = {
   mobileS: "320px",
   mobileM: "375px",
   mobileL: "425px",
