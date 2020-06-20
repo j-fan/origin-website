@@ -33,7 +33,7 @@ const StyledDiv = styled.div`
         transform: scale(100%);
         transition: transform 0.2s ease-out;
         &:hover {
-          transform: scale(105%);
+          transform: scale(102%);
         }
       }
       margin: 0px 10px;

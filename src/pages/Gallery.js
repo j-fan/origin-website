@@ -25,28 +25,28 @@ const Gallery = ({ isVisible, direction }) => {
           imageUrl="img/subvirtual.jpg"
           creator="Callum Howard"
           link={"https://www.originart.xyz"}
-          description="Doggo ipsum ur givin me a spook ruff woofer, boofers."
+          description="Subvirtual Gallery is a gallery full of blank canvases, but as visitors explore the mysteries of the space they will find the gallery's artworks appear everywhere but on the canvas."
         />
         <GalleryCard
           title="Cybermancy"
           imageUrl="img/cybermancy.jpg"
           creator="Jane Fan"
           link={"https://j-fan.github.io/cybermancy2/"}
-          description="Doggo ipsum ur givin me a spook ruff woofer, boofers. Shoober he made many woofs heckin good boys and girls."
+          description="Cybermancy is a AR palm reading experience which presents the user with targeted advertisements and content based on their estimated demographic."
         />
         <GalleryCard
           title="Long Way Home"
           imageUrl="img/longWayHome.jpg"
           creator="Alvin Zhong"
-          link={"https://www.originart.xyz"}
-          description="Doggo ipsum ur givin me a spook ruff woofer, boofers."
+          link={"https://j-fan.github.io/long-way-home/"}
+          description="Long Way Home is an interactive artwork that brings the sensation of travel into your screen."
         />
         <GalleryCard
           title="Meeting Hill"
           imageUrl="img/meetingHill.jpg"
           creator="Patrick Younis Jordan East"
           link={"https://www.originart.xyz"}
-          description="Doggo ipsum ur givin me a spook ruff woofer, boofers. Shoober he made many woofs heckin good boys and girls."
+          description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
         />
       </StyledDiv>
     </Page>
