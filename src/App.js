@@ -2,6 +2,7 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import Home from "./pages/Home";
 import MainCanvas from "./components/threejs/MainCanvas";
+import Gallery from "./pages/Gallery";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -32,7 +33,8 @@ const App = () => (
   <>
     <GlobalStyle />
     {/* <MainCanvas /> */}
-    <Home />
+    {/* <Home /> */}
+    <Gallery isVisible={true} direction={"right"} />
   </>
 );
 

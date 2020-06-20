@@ -5,7 +5,7 @@ import { device, size } from "../AppGlobalStyle";
 
 const StyledDiv = styled.div`
   position: relative;
-  margin: 16px 0px;
+  margin-bottom: 24px;
   display: inline-block;
   .artwork {
     display: flex;

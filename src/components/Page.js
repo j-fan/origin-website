@@ -40,6 +40,11 @@ const StyledMotionDiv = styled(motion.div)`
     text-transform: uppercase;
     padding: 4px 4px 2px 4px;
   }
+
+  p,
+  a {
+    font-size: 14px;
+  }
 `;
 
 const InnerDiv = styled.div`
@@ -52,7 +57,7 @@ const InnerDiv = styled.div`
   }
 
   @media ${device.tablet} {
-    width: 70%;
+    width: 100%;
   }
 
   height: calc(100% - 80px);
@@ -64,6 +69,7 @@ const InnerDiv = styled.div`
     width: 100%;
     padding-right: 20px;
     margin-right: -20px;
+    box-sizing: content-box;
   }
 `;
 
@@ -90,16 +96,7 @@ const Page = ({ direction, isVisible, children }) => {
   if (direction in animationStates) {
     const animationState = animationStates[direction];
     return (
-      <StyledMotionDiv
-        initial="inactive"
-        animate="active"
-        exit="inactive"
-        variants={animationState}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-      >
+      <StyledMotionDiv>
         <InnerDiv>
           <div className="scrollable">{children}</div>
         </InnerDiv>
