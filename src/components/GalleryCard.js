@@ -59,12 +59,11 @@ const StyledDiv = styled.div`
     margin: 8px 10px;
     a {
       text-decoration: none;
-      border-bottom: solid 1px #fff;
+      border-bottom: solid 1px white;
       padding-bottom: 4px;
+      font-size: 14px;
     }
-    /* border-left: 3px solid #fff; */
-    /* padding-left: 8px; */
-    /* min-height: 50px; */
+    font-size: 14px;
   }
 `;
 

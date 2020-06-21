@@ -17,11 +17,14 @@ const StyledDiv = styled.div`
 
 const OriginHeader = styled.div`
   height: 100%;
-  width: 100%;
+  width: calc(100% + 20px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #222;
+  background: #000;
+  background-image: url("https://i.imgur.com/VeJBjfL.jpg");
+  background-size: cover;
+  background-position: center center;
   margin-bottom: 20px;
   position: relative;
   h1 {
@@ -49,11 +52,13 @@ const OriginHeader = styled.div`
 
 const OriginDesc = styled.h4`
   font-size: 16px;
+  text-align: justify;
   @media ${device.mobileS} {
     margin: 50px 0px;
   }
   @media ${device.tablet} {
-    margin: 50px;
+    margin: 50px auto;
+    max-width: 1000px;
   }
 `;
 
@@ -81,18 +86,31 @@ const Gallery = ({ isVisible, direction }) => {
         </div>
       </OriginHeader>
       <OriginDesc id="OriginArtworks">
-        Online (Virtual) is a interactive web exhibition by Sydney based Media
-        Arts collective <a href="https://www.originart.xyz/">Origin</a>. It
-        features artworks that push the boundaries of websites as a medium,
-        including artificial intelligence, generative art and audiovisual
-        installations in virtual space.
+        Origin (Virtual) is an interactive web exhibition by Sydney Media Arts
+        collective <a href="https://www.originart.xyz/">Origin</a>.
+        <br />
+        <br />
+        This exhibition was born out of the current environment which forced
+        artists to quickly adapt to a new normal in which the Virtual plane
+        becomes increasingly necessary to everyday life.
+        <br />
+        <br />
+        Origin (Virtual) features artworks that push the boundaries of websites
+        as a medium, with artists interrogating the applications of artificial
+        intelligence, generative art and audiovisual installations in the
+        virtual space.
+        <br />
+        <br />
+        In doing so, Origin seeks to deconstruct the traditional online gallery
+        experience whilst addressing how social interaction and spectacle has
+        morphed during our time inside.
       </OriginDesc>
       <StyledDiv>
         <GalleryCard
           title="Subvirtual"
-          imageUrl="https://i.imgur.com/jzWKIfm.jpg"
+          imageUrl="https://i.imgur.com/94gXQKI.jpg"
           creator="Callum Howard"
-          link={"https://www.originart.xyz/"}
+          link={"https://www.callumhoward.com/origin/subvirtual"}
           description="Subvirtual Gallery is a gallery full of blank canvases, but as visitors explore the mysteries of the space they will find the gallery's artworks appear everywhere but on the canvas."
         />
         <GalleryCard
@@ -113,7 +131,7 @@ const Gallery = ({ isVisible, direction }) => {
           title="Meeting Hill"
           imageUrl="https://i.imgur.com/EQIsHcH.jpg"
           creator="Patrick Younis Jordan East"
-          link={"https://www.originart.xyz/"}
+          link={"http://tildevisual.tv/"}
           description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
         />
       </StyledDiv>
