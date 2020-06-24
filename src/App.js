@@ -8,17 +8,14 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     font-family: sans-serif;
     margin: 0;
-    height:100%;
-    width: 100%;
-    overflow: hidden;
     position: relative;
-    top: 0;
-    left: 0;
     background-color: #000;
+    width: 100%
   }
   #App {
-    height: 100%;
-    width: 100%;   
+    height: auto;
+    width: 100%;
+    overflow-x:hidden;   
   }
   p {
     line-height: 1.6;

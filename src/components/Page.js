@@ -7,11 +7,8 @@ import { device } from "../AppGlobalStyle";
 const StyledMotionDiv = styled(motion.div)`
   background-color: #111;
   color: #fff;
-  height: 100vh;
   width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   z-index: 98;
   display: flex;
   justify-content: center;
@@ -50,27 +47,13 @@ const StyledMotionDiv = styled(motion.div)`
 const InnerDiv = styled.div`
   @media ${device.mobileS} {
     width: 100%;
-    margin: 0 40px;
-    .scrollable {
-      margin-right: 0px;
-    }
   }
 
   @media ${device.tablet} {
     width: 100%;
   }
 
-  height: calc(100% - 80px);
-  overflow: hidden;
-  .scrollable {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 100%;
-    width: 100%;
-    padding-right: 20px;
-    margin-right: -20px;
-    box-sizing: content-box;
-  }
+  min-height: calc(100% - 80px);
 `;
 
 const animationStates = {
@@ -97,9 +80,7 @@ const Page = ({ direction, isVisible, children }) => {
     const animationState = animationStates[direction];
     return (
       <StyledMotionDiv>
-        <InnerDiv>
-          <div className="scrollable">{children}</div>
-        </InnerDiv>
+        <InnerDiv>{children}</InnerDiv>
       </StyledMotionDiv>
     );
   }

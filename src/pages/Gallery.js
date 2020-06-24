@@ -16,8 +16,8 @@ const StyledDiv = styled.div`
 `;
 
 const OriginHeader = styled.div`
-  height: 100%;
-  width: calc(100% + 20px);
+  height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,13 +53,14 @@ const OriginHeader = styled.div`
 const OriginDesc = styled.h4`
   font-size: 16px;
   text-align: justify;
-  @media ${device.mobileS} {
-    margin: 50px 0px;
-  }
+  margin: 40px 20px;
   @media ${device.tablet} {
-    margin: 50px auto;
     max-width: 1000px;
   }
+`;
+
+const MarginedDiv = styled.div`
+  margin: 40px;
 `;
 
 const scrollToMainContent = () => {
@@ -80,61 +81,63 @@ const Gallery = ({ isVisible, direction }) => {
           </div>
           <div class="centerAlign">
             <div id="DownArrow" onClick={scrollToMainContent}>
-              🠗
+              ⇩
             </div>
           </div>
         </div>
       </OriginHeader>
-      <OriginDesc id="OriginArtworks">
-        Origin (Virtual) is an interactive web exhibition by Sydney Media Arts
-        collective <a href="https://www.originart.xyz/">Origin</a>.
-        <br />
-        <br />
-        This exhibition was born out of the current environment which forced
-        artists to quickly adapt to a new normal in which the Virtual plane
-        becomes increasingly necessary to everyday life.
-        <br />
-        <br />
-        Origin (Virtual) features artworks that push the boundaries of websites
-        as a medium, with artists interrogating the applications of artificial
-        intelligence, generative art and audiovisual installations in the
-        virtual space.
-        <br />
-        <br />
-        In doing so, Origin seeks to deconstruct the traditional online gallery
-        experience whilst addressing how social interaction and spectacle has
-        morphed during our time inside.
-      </OriginDesc>
-      <StyledDiv>
-        <GalleryCard
-          title="Subvirtual"
-          imageUrl="https://i.imgur.com/94gXQKI.jpg"
-          creator="Callum Howard"
-          link={"https://www.callumhoward.com/origin/subvirtual"}
-          description="Subvirtual Gallery is a gallery full of blank canvases, but as visitors explore the mysteries of the space they will find the gallery's artworks appear everywhere but on the canvas."
-        />
-        <GalleryCard
-          title="Cybermancy"
-          imageUrl="https://i.imgur.com/sxzEcvD.jpg"
-          creator="Jane Fan"
-          link={"https://j-fan.github.io/cybermancy2/"}
-          description="Cybermancy is a AR palm reading experience which presents the user with targeted advertisements and content based on their estimated demographic."
-        />
-        <GalleryCard
-          title="Long Way Home"
-          imageUrl="https://i.imgur.com/5j5dxXk.jpg"
-          creator="Alvin Zhong"
-          link={"https://j-fan.github.io/long-way-home/"}
-          description="Long Way Home is an interactive artwork that brings the sensation of travel into your screen."
-        />
-        <GalleryCard
-          title="Meeting Hill"
-          imageUrl="https://i.imgur.com/EQIsHcH.jpg"
-          creator="Patrick Younis Jordan East"
-          link={"http://tildevisual.tv/"}
-          description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
-        />
-      </StyledDiv>
+      <MarginedDiv>
+        <OriginDesc id="OriginArtworks">
+          Origin (Virtual) is an interactive web exhibition by Sydney Media Arts
+          collective <a href="https://www.originart.xyz/">Origin</a>.
+          <br />
+          <br />
+          This exhibition was born out of the current environment which forced
+          artists to quickly adapt to a new normal in which the Virtual plane
+          becomes increasingly necessary to everyday life.
+          <br />
+          <br />
+          Origin (Virtual) features artworks that push the boundaries of
+          websites as a medium, with artists interrogating the applications of
+          artificial intelligence, generative art and audiovisual installations
+          in the virtual space.
+          <br />
+          <br />
+          In doing so, Origin seeks to deconstruct the traditional online
+          gallery experience whilst addressing how social interaction and
+          spectacle has morphed during our time inside.
+        </OriginDesc>
+        <StyledDiv>
+          <GalleryCard
+            title="Subvirtual"
+            imageUrl="https://i.imgur.com/94gXQKI.jpg"
+            creator="Callum Howard"
+            link={"https://www.callumhoward.com/origin/subvirtual"}
+            description="Subvirtual Gallery is a gallery full of blank canvases, but as visitors explore the mysteries of the space they will find the gallery's artworks appear everywhere but on the canvas."
+          />
+          <GalleryCard
+            title="Cybermancy"
+            imageUrl="https://i.imgur.com/sxzEcvD.jpg"
+            creator="Jane Fan"
+            link={"https://j-fan.github.io/cybermancy2/"}
+            description="Cybermancy is a AR palm reading experience which presents the user with targeted advertisements and content based on their estimated demographic."
+          />
+          <GalleryCard
+            title="Long Way Home"
+            imageUrl="https://i.imgur.com/5j5dxXk.jpg"
+            creator="Alvin Zhong"
+            link={"https://j-fan.github.io/long-way-home/"}
+            description="Long Way Home is an interactive artwork that brings the sensation of travel into your screen."
+          />
+          <GalleryCard
+            title="Meeting Hill"
+            imageUrl="https://i.imgur.com/EQIsHcH.jpg"
+            creator="Patrick Younis Jordan East"
+            link={"http://tildevisual.tv/"}
+            description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
+          />
+        </StyledDiv>
+      </MarginedDiv>
     </Page>
   );
 };
