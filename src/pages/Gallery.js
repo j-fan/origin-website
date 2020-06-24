@@ -53,7 +53,7 @@ const OriginHeader = styled.div`
 const OriginDesc = styled.h4`
   font-size: 16px;
   text-align: justify;
-  margin: 40px 20px;
+  margin: 40px auto;
   @media ${device.tablet} {
     max-width: 1000px;
   }
@@ -81,7 +81,7 @@ const Gallery = ({ isVisible, direction }) => {
           </div>
           <div class="centerAlign">
             <div id="DownArrow" onClick={scrollToMainContent}>
-              ⇩
+              ↓
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ const Gallery = ({ isVisible, direction }) => {
             imageUrl="https://i.imgur.com/EQIsHcH.jpg"
             creator="Patrick Younis Jordan East"
             link={"http://tildevisual.tv/"}
-            description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
+            description="Meeting Hill is a web based virtual hilltop, decorated with a rug and a sound system, where visitors can come to listen to a live curated online radio station."
           />
         </StyledDiv>
       </MarginedDiv>

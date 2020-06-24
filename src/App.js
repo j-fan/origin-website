@@ -1,7 +1,5 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import Home from "./pages/Home";
-import MainCanvas from "./components/threejs/MainCanvas";
 import Gallery from "./pages/Gallery";
 
 const GlobalStyle = createGlobalStyle`
@@ -29,8 +27,6 @@ const GlobalStyle = createGlobalStyle`
 const App = () => (
   <>
     <GlobalStyle />
-    {/* <MainCanvas /> */}
-    {/* <Home /> */}
     <Gallery isVisible={true} direction={"right"} />
   </>
 );
