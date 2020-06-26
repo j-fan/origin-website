@@ -28,7 +28,7 @@ const Radio = ({ isVisible, direction }) => {
         Have the full audio-visual experience on the{" "}
         <a href="http://tildevisual.tv/">Meeting Hill</a> artwork. Radio not
         playing?{" "}
-        <a href="http://167.172.134.69/radio/8000/radio.mp3">try this</a>!
+        <a href="http://167.172.134.69/radio/8000/radio.mp3">Try this</a>!
       </p>
       <StyledDiv>
         <audio controls>
