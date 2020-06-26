@@ -25,7 +25,10 @@ const Radio = ({ isVisible, direction }) => {
       <h1>Radio</h1>
       <h2>Origin (Virtual) : Meeting Hill</h2>
       <p>
-        Have the full audio-visual experience on the <a href="http://tildevisual.tv/">Meeting Hill</a> artwork.
+        Have the full audio-visual experience on the{" "}
+        <a href="http://tildevisual.tv/">Meeting Hill</a> artwork. Radio not
+        playing?{" "}
+        <a href="http://167.172.134.69/radio/8000/radio.mp3">try this</a>!
       </p>
       <StyledDiv>
         <audio controls>
@@ -37,6 +40,7 @@ const Radio = ({ isVisible, direction }) => {
           />
           Your browser does not support the audio element. Try using Chrome!
         </audio>
+        <p></p>
       </StyledDiv>
       <h2>Programme</h2>
       <StyledImage>
@@ -52,4 +56,3 @@ Radio.propTypes = {
 };
 
 export default Radio;
-
