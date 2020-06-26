@@ -24,6 +24,7 @@ const screens = {
   about: 1,
   gallery: 2,
   events: 3,
+  radio: 4
 };
 
 const HomeScreenOverlay = ({ setScreen, isCurrentScreen }) => {
@@ -36,12 +37,19 @@ const HomeScreenOverlay = ({ setScreen, isCurrentScreen }) => {
         isVisible={!isCurrentScreen(screens.home)}
         to="/"
       />
-      <HomeNavItem
+      {/* <HomeNavItem
         text="Events"
         direction="bottom"
         onClick={setScreen(screens.events)}
         isVisible={!isCurrentScreen(screens.events)}
         to="/events"
+      /> */}
+      <HomeNavItem
+        text="Radio"
+        direction="bottom"
+        onClick={setScreen(screens.radio)}
+        isVisible={!isCurrentScreen(screens.radio)}
+        to="/radio"
       />
       <HomeNavItem
         text="About"
@@ -100,7 +108,7 @@ const Home = () => {
                 path="/events"
               />
               <Radio
-                isVisible={isCurrentScreen(screens.events)}
+                isVisible={isCurrentScreen(screens.radio)}
                 direction="bottom"
                 path="/radio"
               />

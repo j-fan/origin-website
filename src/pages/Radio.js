@@ -6,20 +6,27 @@ import styled from "styled-components";
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20%;
+  align-content: center;
+  margin: 100px;
 `;
 
-const StyledImage = styled.img`
-  margin-top: 20%;
+const StyledImage = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  img {
+    width: 80%;
+  }
 `;
 
 const Radio = ({ isVisible, direction }) => {
   return (
     <Page isVisible={isVisible} direction={direction}>
       <h1>Radio</h1>
-    <h2>Origin (Virtual) : Meeting Hill</h2>
+      <h2>Origin (Virtual) : Meeting Hill</h2>
+      <p>
+        Have the full audio-visual experience on the <a href="http://tildevisual.tv/">Meeting Hill</a> artwork.
+      </p>
       <StyledDiv>
         <audio controls>
           <source
@@ -31,9 +38,10 @@ const Radio = ({ isVisible, direction }) => {
           Your browser does not support the audio element. Try using Chrome!
         </audio>
       </StyledDiv>
-
-      <StyledImage src="img/MeetingHillprogramming.jpg" alt="programme"/>
-
+      <h2>Programme</h2>
+      <StyledImage>
+        <img src="img/MeetingHillprogramming.jpg" alt="programme" />
+      </StyledImage>
     </Page>
   );
 };
