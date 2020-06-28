@@ -12,10 +12,12 @@ const StyledDiv = styled.div`
 
 const StyledImage = styled.div`
   display: flex;
-  justify-content: center;
   width: 100%;
+  align-content: center;
+  flex-direction: column;
   img {
-    width: 80%;
+    margin: 10px auto;
+    max-width: 700px;
   }
 `;
 
@@ -25,13 +27,14 @@ const Radio = ({ isVisible, direction }) => {
       <h1>Radio</h1>
       <h2>Origin (Virtual) : Meeting Hill</h2>
       <p>
-        Have the full audio-visual experience on the <a href="http://tildevisual.tv/">Meeting Hill</a> artwork.
+        Have the full audio-visual experience on the{" "}
+        <a href="http://tildevisual.tv/">Meeting Hill</a> artwork.
       </p>
       <StyledDiv>
         <audio controls>
           <source
-            autoplay
-            crossorigin="anonymous"
+            autoPlay
+            crossOrigin="anonymous"
             src="http://167.172.134.69/radio/8000/radio.mp3"
             type="audio/mpeg"
           />
@@ -40,6 +43,7 @@ const Radio = ({ isVisible, direction }) => {
       </StyledDiv>
       <h2>Programme</h2>
       <StyledImage>
+        <img src="img/debpromo.png" alt="debPromo" />
         <img src="img/MeetingHillprogramming.jpg" alt="programme" />
       </StyledImage>
     </Page>
