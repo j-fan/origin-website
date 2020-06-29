@@ -46,7 +46,6 @@ const Radio = ({ isVisible, direction }) => {
       </StyledDiv>
       <h2>Programme</h2>
       <StyledImage>
-        <img src="img/debpromo.png" alt="debPromo" />
         <img src="img/MeetingHillprogramming.jpg" alt="programme" />
       </StyledImage>
     </Page>
