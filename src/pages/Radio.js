@@ -2,6 +2,7 @@ import React from "react";
 import Page from "../components/Page";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { device } from "../AppGlobalStyle";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -11,13 +12,26 @@ const StyledDiv = styled.div`
 `;
 
 const StyledImage = styled.div`
-  display: flex;
   width: 100%;
-  align-content: center;
-  flex-direction: column;
   img {
-    margin: 10px auto;
-    max-width: 700px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+`;
+
+const FlexDiv = styled.div`
+  display: block;
+  iframe {
+    margin-bottom: 10px;
+    height: 300px;
+  }
+  @media ${device.tablet} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    iframe {
+      height: 300px;
+    }
   }
 `;
 
@@ -44,10 +58,31 @@ const Radio = ({ isVisible, direction }) => {
         </audio>
         <p></p>
       </StyledDiv>
-      <h2>Programme</h2>
-      <StyledImage>
-        <img src="img/MeetingHillprogramming.jpg" alt="programme" />
-      </StyledImage>
+      <FlexDiv>
+        <div>
+          <h2>Programme</h2>
+          <StyledImage>
+            <img src="img/MeetingHillprogramming.jpg" alt="programme" />
+          </StyledImage>
+        </div>
+        <div>
+          <h2>Past recordings</h2>
+          <iframe
+            width="100%"
+            src="https://www.youtube.com/embed/zS2J8WTQhKw?controls=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            width="100%"
+            src="https://www.youtube.com/embed/Cr-LIkSlqvQ?controls=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </FlexDiv>
     </Page>
   );
 };
