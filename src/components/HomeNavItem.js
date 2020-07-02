@@ -71,7 +71,7 @@ const animationStates = {
   },
 };
 
-const HomeNavItem = ({ text, onClick, direction, isVisible, to }) => {
+const HomeNavItem = ({ text, direction, isVisible, to }) => {
   if (direction in animationStates) {
     const animationState = animationStates[direction];
     return (
@@ -84,7 +84,6 @@ const HomeNavItem = ({ text, onClick, direction, isVisible, to }) => {
             ease: "backIn",
             duration: 0.5,
           }}
-          onClick={onClick}
           direction={direction}
         >
           {text}
@@ -97,7 +96,6 @@ const HomeNavItem = ({ text, onClick, direction, isVisible, to }) => {
 
 HomeNavItem.propTypes = {
   text: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   direction: PropTypes.string.isRequired,
   isVisible: PropTypes.bool.isRequired,
   to: PropTypes.string.isRequired,

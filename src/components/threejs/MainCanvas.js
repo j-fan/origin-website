@@ -13,6 +13,7 @@ import {
   ChromaticAberrationEffect,
 } from "postprocessing";
 import { Clock } from "three";
+import PropTypes from "prop-types";
 
 const StyledDiv = styled.div`
   overflow: hidden;
@@ -24,8 +25,9 @@ const StyledDiv = styled.div`
 `;
 
 const noise3D = makeNoise3D(900);
+let isAnimating = true;
 
-const MainCanvas = () => {
+const MainCanvas = ({ isVisible }) => {
   let scene;
   let skyMap;
   let camera;
@@ -47,8 +49,15 @@ const MainCanvas = () => {
     loadPlane();
     addLights();
     addPostProcessing();
+    animate();
+  }, []);
 
-    const animate = () => {
+  useEffect(() => {
+    isAnimating = isVisible;
+  }, [isVisible]);
+
+  const animate = () => {
+    if (isAnimating) {
       originLogoArray.forEach((originLogo) => {
         noiseXoffset += 0.0002;
         noiseYoffset += 0.0002;
@@ -62,15 +71,12 @@ const MainCanvas = () => {
         originLogo.rotation.y = Math.cos(noise * Math.PI * 2);
         originLogo.rotation.z = Math.sin(noise * Math.PI * 2);
       });
-
       camera.rotation.z += 0.001;
-
       composer.render(clock.getDelta());
       // renderer.render(scene, camera);
-      requestAnimationFrame(animate);
-    };
-    animate();
-  }, []);
+    }
+    requestAnimationFrame(animate);
+  };
 
   const addPostProcessing = () => {
     composer = new EffectComposer(renderer);
@@ -239,6 +245,10 @@ const MainCanvas = () => {
   };
 
   return <StyledDiv id="mainCanvas"></StyledDiv>;
+};
+
+MainCanvas.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
 };
 
 export default MainCanvas;

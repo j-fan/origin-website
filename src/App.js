@@ -1,7 +1,6 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import Home from "./pages/Home";
-import MainCanvas from "./components/threejs/MainCanvas";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -31,7 +30,6 @@ const GlobalStyle = createGlobalStyle`
 const App = () => (
   <>
     <GlobalStyle />
-    <MainCanvas />
     <Home />
   </>
 );

@@ -8,6 +8,7 @@ import About from "./About";
 import Radio from "./Radio";
 import { Router, Location } from "@reach/router";
 import { AnimatePresence } from "framer-motion";
+import MainCanvas from "../components/threejs/MainCanvas";
 
 const StyledDiv = styled.div`
   position: absolute;
@@ -20,97 +21,78 @@ const StyledDiv = styled.div`
 `;
 
 const screens = {
-  home: 0,
-  about: 1,
-  gallery: 2,
-  events: 3,
-  radio: 4
+  home: "/",
+  about: "/about",
+  gallery: "/gallery",
+  events: "/events",
+  radio: "/radio",
 };
 
-const HomeScreenOverlay = ({ setScreen, isCurrentScreen }) => {
+const HomeScreenOverlay = ({ currentScreen }) => {
   return (
     <StyledDiv>
       <HomeNavItem
         text="Home"
         direction="top"
-        onClick={setScreen(screens.home)}
-        isVisible={!isCurrentScreen(screens.home)}
-        to="/"
+        isVisible={currentScreen !== screens.home}
+        to={screens.home}
       />
       {/* <HomeNavItem
         text="Events"
         direction="bottom"
-        onClick={setScreen(screens.events)}
-        isVisible={!isCurrentScreen(screens.events)}
-        to="/events"
+        isVisible={currentScren !== screens.events}
+        to={screens.events}
       /> */}
       <HomeNavItem
         text="Radio"
         direction="bottom"
-        onClick={setScreen(screens.radio)}
-        isVisible={!isCurrentScreen(screens.radio)}
-        to="/radio"
+        isVisible={currentScreen !== screens.radio}
+        to={screens.radio}
       />
       <HomeNavItem
         text="About"
         direction="left"
-        onClick={setScreen(screens.about)}
-        isVisible={!isCurrentScreen(screens.about)}
-        to="about"
+        isVisible={currentScreen !== screens.about}
+        to={screens.about}
       />
       <HomeNavItem
         text="Gallery"
         direction="right"
-        onClick={setScreen(screens.gallery)}
-        isVisible={!isCurrentScreen(screens.gallery)}
-        to="gallery"
+        isVisible={currentScreen !== screens.gallery}
+        to={screens.gallery}
       />
     </StyledDiv>
   );
 };
 
 const Home = () => {
-  const [currentScreen, setcurrentScreen] = useState(screens.home);
-  const isCurrentScreen = (screen) => currentScreen == screen;
-  const setScreen = (screen) => {
-    return () => {
-      if (currentScreen == screen) {
-        setcurrentScreen(screens.home);
-      } else {
-        setcurrentScreen(screen);
-      }
-    };
-  };
-
   return (
     <Location>
       {({ location }) => (
         <>
-          <HomeScreenOverlay
-            setScreen={setScreen}
-            isCurrentScreen={isCurrentScreen}
-          />
+          <HomeScreenOverlay currentScreen={location.pathname} />
+          <MainCanvas isVisible={location.pathname === screens.home} />
           <AnimatePresence>
             <Router location={location} key={location.pathname}>
               <About
-                isVisible={isCurrentScreen(screens.about)}
+                isVisible={location.pathname === screens.about}
                 direction="left"
-                path="/about"
+                path={screens.about}
               />
               <Gallery
-                isVisible={isCurrentScreen(screens.gallery)}
+                isVisible={location.pathname === screens.gallery}
                 direction="right"
-                path="/gallery"
+                path={screens.gallery}
               />
               <Events
-                isVisible={isCurrentScreen(screens.events)}
+                isVisible={location.pathname === screens.events}
                 direction="bottom"
-                path="/events"
+                path={screens.events}
               />
               <Radio
-                isVisible={isCurrentScreen(screens.radio)}
+                isVisible={location.pathname === screens.radio}
                 direction="bottom"
-                path="/radio"
+                path={screens.radio}
               />
             </Router>
           </AnimatePresence>
