@@ -41,10 +41,11 @@ const Radio = ({ isVisible, direction }) => {
       <h1>Radio</h1>
       <h2>Origin (Virtual) : Meeting Hill</h2>
       <p>
-        Have the full audio-visual experience on the{" "}
-        <a href="http://tildevisual.tv/">Meeting Hill</a> artwork. Radio not
-        playing?{" "}
-        <a href="http://167.172.134.69/radio/8000/radio.mp3">Try this</a>!
+        Meeting Hill radio was a past event as part of the Origin Virtual
+        exhibition. The radio is not live anymore, but you can experience it
+        again through the past recordings on this page, or visit the virtual
+        landscape <a href="http://tildevisual.tv/">here</a>.
+        {/* Radio not playing?{" "}<a href="http://167.172.134.69/radio/8000/radio.mp3">Try this</a>! */}
       </p>
       <StyledDiv>
         <audio controls>
