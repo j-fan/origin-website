@@ -81,6 +81,20 @@ const Radio = ({ isVisible, direction }) => {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
+          <iframe
+            width="100%"
+            src="https://www.youtube.com/embed/WVmfLsituMI?controls=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            width="100%"
+            src="https://www.youtube.com/embed/eJa5QqjwKE8?controls=0"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
         </div>
       </FlexDiv>
     </Page>

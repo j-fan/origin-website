@@ -15,24 +15,50 @@ const StyledDiv = styled.div`
   }
 `;
 
+const StyledImg = styled.img`
+  width: 100%;
+`;
+
+const Spacer = styled.div`
+  height: 50px;
+  width: 100%;
+`;
+
 const Gallery = ({ isVisible, direction }) => {
   return (
     <Page isVisible={isVisible} direction={direction}>
-      <h1>Origin Virtual</h1>
+      <h1>Current Exhibitions</h1>
+      <h2>Origin Parallels</h2>
+      <h3>16.09.2020 - 3.10.2020</h3>
+      <StyledImg
+        src="img/originParallels.jpg"
+        ahref="https://www.facebook.com/events/327620571919303"
+      />
+      <p>
+        Origin Parallels is the second exhibition of the Origin collective and
+        the to be held at Kudos Gallery. This show will feature interactive
+        visual, audio and physical artworks that are networked to one another.
+        <br />
+        <br />
+        <a href="https://www.facebook.com/events/327620571919303">
+          ➜ Facebook event link
+        </a>
+      </p>
+      <Spacer />
+      <h1>Past Exhibitions</h1>
+      <h2>Origin Virtual</h2>
+      <h3>24.06.2020 - 8.07.2020</h3>
       <p id="OriginArtworks">
-        Origin (Virtual) is an interactive web exhibition by Sydney Media Arts
+        Origin Virtual is an interactive web exhibition by Sydney Media Arts
         collective <a href="https://www.originart.xyz/">Origin</a>.
         <br />
         <br />
         This exhibition was born out of the current environment which forced
         artists to quickly adapt to a new normal in which the Virtual plane
-        becomes increasingly necessary to everyday life.
-        <br />
-        <br />
-        Origin (Virtual) features artworks that push the boundaries of websites
-        as a medium, with artists interrogating the applications of artificial
-        intelligence, generative art and audiovisual installations in the
-        virtual space.
+        becomes increasingly necessary to everyday life. Origin (Virtual)
+        features artworks that push the boundaries of websites as a medium, with
+        artists interrogating the applications of artificial intelligence,
+        generative art and audiovisual installations in the virtual space.
         <br />
         <br />
         In doing so, Origin seeks to deconstruct the traditional online gallery
