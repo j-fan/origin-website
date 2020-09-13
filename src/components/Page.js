@@ -122,7 +122,7 @@ const Page = ({ direction, isVisible, children }) => {
 };
 
 Page.propTypes = {
-  direction: PropTypes.string.isRequired,
+  direction: PropTypes.string,
   isVisible: PropTypes.bool.isRequired,
 };
 

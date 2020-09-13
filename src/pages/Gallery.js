@@ -45,6 +45,7 @@ const Gallery = ({ isVisible, direction }) => {
           creator="Alvin Zhong"
           link={"/artwork?id=origintv"}
           linkText="➜ Artwork details"
+          isLinkInternal
         />
         <GalleryCard
           title="All Aboard"
@@ -52,6 +53,7 @@ const Gallery = ({ isVisible, direction }) => {
           creator="Alvin Zhong"
           link={"/artwork?id=allaboard"}
           linkText="➜ Artwork details"
+          isLinkInternal
         />
         <GalleryCard
           title="Cybermancy"
@@ -59,6 +61,7 @@ const Gallery = ({ isVisible, direction }) => {
           creator="Jane Fan"
           link={"/artwork?id=cybermancy"}
           linkText="➜ Artwork details"
+          isLinkInternal
         />
         <GalleryCard
           title="Celestial Bodies"
@@ -66,12 +69,14 @@ const Gallery = ({ isVisible, direction }) => {
           creator="Jane Fan"
           link={"/artwork?id=celestialbodies"}
           linkText="➜ Artwork details"
+          isLinkInternal
         />
         <GalleryCard
           title="Singularity"
           creator="Pat Younis, Jordan East"
           link={"/artwork?id=singularity"}
           linkText="➜ Artwork details"
+          isLinkInternal
         />
       </StyledDiv>
       <Spacer />

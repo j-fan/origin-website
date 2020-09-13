@@ -31,7 +31,9 @@ const ArtworkPage = ({
     <Page isVisible>
       <h1>{title}</h1>
       <h2>{artist}</h2>
-      <Images>{imageUrls && imageUrls.map((url) => <img src={url} />)}</Images>
+      <Images>
+        {imageUrls && imageUrls.map((url, i) => <img src={url} key={i} />)}
+      </Images>
       <h3>Description</h3>
       <MediumDate>
         <p>{medium}</p>

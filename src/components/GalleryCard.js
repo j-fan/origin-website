@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { device } from "../AppGlobalStyle";
+import { Link } from "@reach/router";
 
 const StyledDiv = styled.div`
   position: relative;
@@ -68,6 +69,23 @@ const StyledDiv = styled.div`
   }
 `;
 
+const LinkWithContent = ({ link, isLinkInternal, children }) => {
+  if (isLinkInternal) {
+    if (content) {
+      return <Link to={link}>{children}</Link>;
+    } else {
+      return <Link to={link}>{children}</Link>;
+    }
+  } else {
+    console.log(content);
+    if (link) {
+      return <a href={link}>{children}</a>;
+    } else {
+      return <a href={link}>{children}</a>;
+    }
+  }
+};
+
 const GalleryCard = ({
   imageUrl,
   description,
@@ -75,32 +93,31 @@ const GalleryCard = ({
   title,
   link,
   linkText,
+  isLinkInternal,
 }) => {
   return (
     <StyledDiv>
       <div className="artwork">
         <div className="image">
-          <a href={link}>
+          <LinkWithContent link={link} isLinkInternal={isLinkInternal}>
             {imageUrl ? <img src={imageUrl} /> : <img src="img/pending.png" />}
-          </a>
+          </LinkWithContent>
         </div>
         <h2 className="title">{title}</h2>
         <div className="creator">{creator}</div>
       </div>
       <div className="description">
         <p>{description}</p>
-        {linkText ? (
-          <a href={link}>{linkText}</a>
-        ) : (
-          <a href={link}>➜ Go to interactive artwork</a>
-        )}
+        <LinkWithContent link={link} isLinkInternal={isLinkInternal}>
+          {linkText ?? "➜ Go to artwork"}
+        </LinkWithContent>
       </div>
     </StyledDiv>
   );
 };
 
 GalleryCard.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   description: PropTypes.string,
   creator: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
