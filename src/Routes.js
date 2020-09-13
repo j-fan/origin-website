@@ -1,11 +1,12 @@
 import React from "react";
-import { Router, Location } from "@reach/router";
+import { Router } from "@reach/router";
 import Events from "./pages/Events";
 import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import Radio from "./pages/Radio";
 import ArtworkDetails from "./pages/ArtworkDetails";
 import { AnimatePresence } from "framer-motion";
+import { animateDirection } from "./components/Page";
 
 export const paths = {
   home: "/",
@@ -13,7 +14,7 @@ export const paths = {
   gallery: "/gallery",
   events: "/events",
   radio: "/radio",
-  artwork: "/artwork/:id",
+  artwork: "/artwork",
 };
 
 const Routes = ({ location }) => {
@@ -23,25 +24,29 @@ const Routes = ({ location }) => {
       <Router location={location} key={location.pathname}>
         <About
           isVisible={location.pathname === paths.about}
-          direction="left"
+          direction={animateDirection.left}
           path={paths.about}
         />
         <Gallery
           isVisible={location.pathname === paths.gallery}
-          direction="right"
+          direction={animateDirection.right}
           path={paths.gallery}
         />
         <Events
           isVisible={location.pathname === paths.events}
-          direction="bottom"
+          direction={animateDirection.bottom}
           path={paths.events}
         />
         <Radio
           isVisible={location.pathname === paths.radio}
-          direction="bottom"
+          direction={animateDirection.bottom}
           path={paths.radio}
         />
-        <ArtworkDetails path={paths.artwork} />
+        <ArtworkDetails
+          isVisible={location.pathname === paths.radio}
+          direction={animateDirection.top}
+          path={paths.artwork}
+        />
       </Router>
     </AnimatePresence>
   );

@@ -43,6 +43,10 @@ const StyledMotionDiv = styled(motion.div)`
 `;
 
 const InnerDiv = styled.div`
+  img {
+    width: 100%;
+  }
+
   @media ${device.mobileS} {
     width: 100%;
     margin: 0 40px;
@@ -86,7 +90,15 @@ const animationStates = {
   },
 };
 
+export const animateDirection = {
+  top: "top",
+  bottom: "bottom",
+  left: "left",
+  right: "right",
+};
+
 const Page = ({ direction, isVisible, children }) => {
+  direction = direction || animateDirection.top;
   if (direction in animationStates) {
     const animationState = animationStates[direction];
     return (

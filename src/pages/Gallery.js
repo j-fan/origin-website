@@ -14,11 +14,6 @@ const StyledDiv = styled.div`
     column-gap: 40px;
   }
 `;
-
-const StyledImg = styled.img`
-  width: 100%;
-`;
-
 const Spacer = styled.div`
   height: 50px;
   width: 100%;
@@ -30,7 +25,7 @@ const Gallery = ({ isVisible, direction }) => {
       <h1>Current Exhibitions</h1>
       <h2>Origin Parallels</h2>
       <h3>16.09.2020 - 3.10.2020</h3>
-      <StyledImg
+      <img
         src="img/originParallels.jpg"
         ahref="https://www.facebook.com/events/327620571919303"
       />
