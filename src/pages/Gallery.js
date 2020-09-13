@@ -41,16 +41,16 @@ const Gallery = ({ isVisible, direction }) => {
       </p>
       <StyledDiv>
         <GalleryCard
+          title="Origin TV"
+          creator="Alvin Zhong"
+          link={"/artwork?id=origintv"}
+          linkText="➜ Artwork details"
+        />
+        <GalleryCard
           title="All Aboard"
           imageUrl="img/all_aboard.png"
           creator="Alvin Zhong"
           link={"/artwork?id=singularity"}
-          linkText="➜ Artwork details"
-        />
-        <GalleryCard
-          title="Origin TV"
-          creator="Alvin Zhong"
-          link={"/artwork?id=origintv"}
           linkText="➜ Artwork details"
         />
         <GalleryCard
