@@ -6,6 +6,7 @@ import AllAboard from "../components/artworks/AllAboard";
 import Cybermancy from "../components/artworks/Cybermancy";
 import OriginTv from "../components/artworks/OriginTv";
 import Singularity from "../components/artworks/Singularity";
+import ArsAnima from "../components/artworks/ArsAnima";
 
 // using querystring for now because reach-router URL params
 // are broken in this project
@@ -36,6 +37,8 @@ const RenderArtworkPage = (id) => {
       return <Cybermancy />;
     case "singularity":
       return <Singularity />;
+    case "arsanima":
+      return <ArsAnima />;
     default:
       return <ArtworkNotFound />;
   }

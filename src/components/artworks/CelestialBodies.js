@@ -24,7 +24,7 @@ const CelestialBodies = () => {
         </div>
       }
       date="2020"
-      medium="Digital Media: Projection of interactive and audioreactive computer graphics "
+      medium="Digital Media: Unity game engine, depth camera and projector"
     />
   );
 };

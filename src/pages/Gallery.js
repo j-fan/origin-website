@@ -56,6 +56,14 @@ const Gallery = ({ isVisible, direction }) => {
           isLinkInternal
         />
         <GalleryCard
+          title="Ars Anima"
+          imageUrl="img/arsanima.jpg"
+          creator="Callum Howard"
+          link={"/artwork?id=arsanima"}
+          linkText="➜ Artwork details"
+          isLinkInternal
+        />
+        <GalleryCard
           title="Cybermancy"
           imageUrl="img/cybermancy.jpg"
           creator="Jane Fan"
