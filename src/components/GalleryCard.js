@@ -68,13 +68,20 @@ const StyledDiv = styled.div`
   }
 `;
 
-const GalleryCard = ({ imageUrl, description, creator, title, link }) => {
+const GalleryCard = ({
+  imageUrl,
+  description,
+  creator,
+  title,
+  link,
+  linkText,
+}) => {
   return (
     <StyledDiv>
       <div className="artwork">
         <div className="image">
           <a href={link}>
-            <img src={imageUrl} />
+            {imageUrl ? <img src={imageUrl} /> : <img src="img/pending.png" />}
           </a>
         </div>
         <h2 className="title">{title}</h2>
@@ -82,7 +89,11 @@ const GalleryCard = ({ imageUrl, description, creator, title, link }) => {
       </div>
       <div className="description">
         <p>{description}</p>
-        <a href={link}>➜ Go to interactive artwork</a>
+        {linkText ? (
+          <a href={link}>{linkText}</a>
+        ) : (
+          <a href={link}>➜ Go to interactive artwork</a>
+        )}
       </div>
     </StyledDiv>
   );

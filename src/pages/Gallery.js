@@ -39,6 +39,41 @@ const Gallery = ({ isVisible, direction }) => {
           ➜ Facebook event link
         </a>
       </p>
+      <StyledDiv>
+        <GalleryCard
+          title="All Aboard"
+          imageUrl="img/all_aboard.png"
+          creator="Alvin Zhong"
+          link={"/artwork?id=singularity"}
+          linkText="➜ Artwork details"
+        />
+        <GalleryCard
+          title="Origin TV"
+          creator="Alvin Zhong"
+          link={"/artwork?id=origintv"}
+          linkText="➜ Artwork details"
+        />
+        <GalleryCard
+          title="Cybermancy"
+          imageUrl="img/cybermancy.jpg"
+          creator="Jane Fan"
+          link={"/artwork?id=cybermancy"}
+          linkText="➜ Artwork details"
+        />
+        <GalleryCard
+          title="Celestial Bodies"
+          imageUrl="img/celestial_bodies.png"
+          creator="Jane Fan"
+          link={"/artwork?id=celestialbodies"}
+          linkText="➜ Artwork details"
+        />
+        <GalleryCard
+          title="Singularity"
+          creator="Pat Younis, Jordan East"
+          link={"/artwork?id=singularity"}
+          linkText="➜ Artwork details"
+        />
+      </StyledDiv>
       <Spacer />
       <h1>Past Exhibitions</h1>
       <h2>Origin Virtual</h2>
@@ -85,7 +120,7 @@ const Gallery = ({ isVisible, direction }) => {
         <GalleryCard
           title="Meeting Hill"
           imageUrl="img/meetingHill.jpg"
-          creator="Patrick Younis Jordan East"
+          creator="Pat Younis Jordan East"
           link={"http://tildevisual.tv/"}
           description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
         />
