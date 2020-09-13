@@ -50,7 +50,7 @@ const Gallery = ({ isVisible, direction }) => {
           title="All Aboard"
           imageUrl="img/all_aboard.png"
           creator="Alvin Zhong"
-          link={"/artwork?id=singularity"}
+          link={"/artwork?id=allaboard"}
           linkText="➜ Artwork details"
         />
         <GalleryCard
