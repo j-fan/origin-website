@@ -1,6 +1,8 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import Home from "./pages/Home";
+import Routes from "./Routes";
+import { Location } from "@reach/router";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
@@ -30,7 +32,14 @@ const GlobalStyle = createGlobalStyle`
 const App = () => (
   <>
     <GlobalStyle />
-    <Home />
+    <Location>
+      {({ location }) => (
+        <>
+          <Home location={location} />
+          <Routes location={location} />
+        </>
+      )}
+    </Location>
   </>
 );
 
