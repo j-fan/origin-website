@@ -1,20 +1,22 @@
 import React from "react";
 import Page from "./Page";
 import styled from "styled-components";
-import { device } from "../AppGlobalStyle";
 
-const ImagesAndDetails = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  @media ${device.tablet} {
-    grid-template-columns: 4fr 1fr;
+const Images = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    max-width: 70%;
   }
 `;
 
-const AlignBottom = styled.div`
-  margin-top: auto;
+const MediumDate = styled.div`
+  margin: 20px 0;
   color: #aaa;
+  p {
+    margin: 0;
+  }
 `;
 
 const ArtworkPage = ({
@@ -29,14 +31,12 @@ const ArtworkPage = ({
     <Page isVisible>
       <h1>{title}</h1>
       <h2>{artist}</h2>
-      <ImagesAndDetails>
-        <div>{imageUrls && imageUrls.map((url) => <img src={url} />)}</div>
-        <AlignBottom>
-          <p>{medium}</p>
-          <p>{date}</p>
-        </AlignBottom>
-      </ImagesAndDetails>
+      <Images>{imageUrls && imageUrls.map((url) => <img src={url} />)}</Images>
       <h3>Description</h3>
+      <MediumDate>
+        <p>{medium}</p>
+        <p>{date}</p>
+      </MediumDate>
       <p>{description}</p>
     </Page>
   );

@@ -2,6 +2,10 @@ import React from "react";
 import Page from "../components/Page";
 import * as queryString from "query-string";
 import CelestialBodies from "../components/artworks/CelestialBodies";
+import AllAboard from "../components/artworks/AllAboard";
+import Cybermancy from "../components/artworks/Cybermancy";
+import OriginTv from "../components/artworks/OriginTv";
+import Singularity from "../components/artworks/Singularity";
 
 // using querystring for now because reach-router URL params
 // are broken in this project
@@ -24,6 +28,14 @@ const RenderArtworkPage = (id) => {
   switch (id) {
     case "celestialbodies":
       return <CelestialBodies />;
+    case "allaboard":
+      return <AllAboard />;
+    case "origintv":
+      return <OriginTv />;
+    case "cybermancy":
+      return <Cybermancy />;
+    case "singularity":
+      return <Singularity />;
     default:
       return <ArtworkNotFound />;
   }
