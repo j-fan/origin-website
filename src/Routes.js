@@ -18,7 +18,6 @@ export const paths = {
 };
 
 const Routes = ({ location }) => {
-  console.log(location);
   return (
     <AnimatePresence>
       <Router location={location} key={location.pathname}>

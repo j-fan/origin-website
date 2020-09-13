@@ -26,8 +26,8 @@ const Singularity = () => {
           jacks.
         </div>
       }
-      date="2019-2020"
-      medium="Analog TV & Animation "
+      date="2020"
+      medium="Unity, Arduino, OSC"
     />
   );
 };
