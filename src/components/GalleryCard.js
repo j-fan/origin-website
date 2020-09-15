@@ -71,18 +71,9 @@ const StyledDiv = styled.div`
 
 const LinkWithContent = ({ link, isLinkInternal, children }) => {
   if (isLinkInternal) {
-    if (content) {
-      return <Link to={link}>{children}</Link>;
-    } else {
-      return <Link to={link}>{children}</Link>;
-    }
+    return <Link to={link}>{children}</Link>;
   } else {
-    console.log(content);
-    if (link) {
-      return <a href={link}>{children}</a>;
-    } else {
-      return <a href={link}>{children}</a>;
-    }
+    return <a href={link}>{children}</a>;
   }
 };
 

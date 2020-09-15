@@ -22,7 +22,7 @@ const Spacer = styled.div`
 const Gallery = ({ isVisible, direction }) => {
   return (
     <Page isVisible={isVisible} direction={direction}>
-      <h1>Current Exhibitions</h1>
+      <h1>Current Exhibition</h1>
       <h2>Origin Parallels</h2>
       <h3>16.09.2020 - 3.10.2020</h3>
       <img
@@ -44,6 +44,7 @@ const Gallery = ({ isVisible, direction }) => {
           title="Origin TV"
           creator="Alvin Zhong"
           link={"/artwork?id=origintv"}
+          imageUrl="img/origintv.jpg"
           linkText="➜ Artwork details"
           isLinkInternal
         />
@@ -52,6 +53,14 @@ const Gallery = ({ isVisible, direction }) => {
           imageUrl="img/all_aboard.png"
           creator="Alvin Zhong"
           link={"/artwork?id=allaboard"}
+          linkText="➜ Artwork details"
+          isLinkInternal
+        />
+        <GalleryCard
+          title="Orbis Junctus"
+          imageUrl="img/orbisJunctus.jpg"
+          creator="Callum Howard"
+          link={"/artwork?id=orbisjunctus"}
           linkText="➜ Artwork details"
           isLinkInternal
         />
@@ -82,13 +91,22 @@ const Gallery = ({ isVisible, direction }) => {
         <GalleryCard
           title="Singularity"
           creator="Pat Younis, Jordan East"
+          imageUrl="img/singularity.jpg"
           link={"/artwork?id=singularity"}
+          linkText="➜ Artwork details"
+          isLinkInternal
+        />
+        <GalleryCard
+          title="Cinder"
+          imageUrl="img/cinder.jpg"
+          creator="Pat Younis"
+          link={"/artwork?id=cinder"}
           linkText="➜ Artwork details"
           isLinkInternal
         />
       </StyledDiv>
       <Spacer />
-      <h1>Past Exhibitions</h1>
+      {/* <h1>Past Exhibitions</h1>
       <h2>Origin Virtual</h2>
       <h3>24.06.2020 - 8.07.2020</h3>
       <p id="OriginArtworks">
@@ -137,7 +155,7 @@ const Gallery = ({ isVisible, direction }) => {
           link={"http://tildevisual.tv/"}
           description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
         />
-      </StyledDiv>
+      </StyledDiv> */}
     </Page>
   );
 };

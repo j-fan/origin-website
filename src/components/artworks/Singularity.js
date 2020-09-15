@@ -6,7 +6,7 @@ const Singularity = () => {
     <ArtworkPage
       title="Singularity"
       artist="Pat Younis, Jordan East"
-      imageUrls={[]}
+      imageUrls={["img/singularity.jpg"]}
       description={
         <div>
           Singularity is an interactive virtual landscape designed to be a

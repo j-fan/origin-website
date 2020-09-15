@@ -6,7 +6,7 @@ const OriginTv = () => {
     <ArtworkPage
       title="Origin TV"
       artist="Alvin Zhong"
-      imageUrls={[]}
+      imageUrls={["img/origintv.jpg"]}
       description={
         <div>
           “Origin TV” is a continuous collaborative effort by the Origin
