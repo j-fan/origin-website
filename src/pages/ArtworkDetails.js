@@ -8,7 +8,8 @@ import OriginTv from "../components/artworks/OriginTv";
 import Singularity from "../components/artworks/Singularity";
 import ArsAnima from "../components/artworks/ArsAnima";
 import OrbisJunctus from "../components/artworks/OrbisJunctus";
-import Cinder from "../components/artworks/Cinder";
+import ReReality from "../components/artworks/ReReality";
+import Nimbus from "../components/artworks/Nimbus";
 
 // using querystring for now because reach-router URL params
 // are broken in this project
@@ -43,8 +44,10 @@ const RenderArtworkPage = (id) => {
       return <ArsAnima />;
     case "orbisjunctus":
       return <OrbisJunctus />;
-    case "cinder":
-      return <Cinder/>;
+    case "nimbus":
+      return <Nimbus />;
+    case "rereality":
+      return <ReReality />;
     default:
       return <ArtworkNotFound />;
   }

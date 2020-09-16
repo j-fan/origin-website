@@ -5,7 +5,7 @@ const Singularity = () => {
   return (
     <ArtworkPage
       title="Singularity"
-      artist="Pat Younis, Jordan East"
+      artist="Pat Younis, Jordan East, Dylan Marelic-Mcintyre"
       imageUrls={["img/singularity.jpg"]}
       description={
         <div>
