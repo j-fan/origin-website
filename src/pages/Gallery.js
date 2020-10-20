@@ -116,6 +116,7 @@ const Gallery = ({ isVisible, direction }) => {
       <Spacer />
       <h2>Origin Virtual</h2>
       <h3>24.06.2020 - 8.07.2020</h3>
+      <img src="img/originVirtual.jpg" />
       <p id="OriginArtworks">
         Origin Virtual is an interactive web exhibition by Sydney Media Arts
         collective <a href="https://www.originart.xyz/">Origin</a>.
