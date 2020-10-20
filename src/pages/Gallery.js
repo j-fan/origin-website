@@ -22,7 +22,7 @@ const Spacer = styled.div`
 const Gallery = ({ isVisible, direction }) => {
   return (
     <Page isVisible={isVisible} direction={direction}>
-      <h1>Current Exhibition</h1>
+      <h1>Past Exhibitions</h1>
       <h2>Origin Parallels</h2>
       <h3>16.09.2020 - 3.10.2020</h3>
       <img
@@ -114,7 +114,6 @@ const Gallery = ({ isVisible, direction }) => {
         />
       </StyledDiv>
       <Spacer />
-      {/* <h1>Past Exhibitions</h1>
       <h2>Origin Virtual</h2>
       <h3>24.06.2020 - 8.07.2020</h3>
       <p id="OriginArtworks">
@@ -163,7 +162,7 @@ const Gallery = ({ isVisible, direction }) => {
           link={"http://tildevisual.tv/"}
           description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
         />
-      </StyledDiv> */}
+      </StyledDiv>
     </Page>
   );
 };
