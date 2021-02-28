@@ -10,6 +10,7 @@ import ArsAnima from "../components/artworks/ArsAnima";
 import OrbisJunctus from "../components/artworks/OrbisJunctus";
 import ReReality from "../components/artworks/ReReality";
 import Nimbus from "../components/artworks/Nimbus";
+import MeetingHill from "../components/artworks/MeetingHill";
 
 // using querystring for now because reach-router URL params
 // are broken in this project
@@ -48,6 +49,8 @@ const RenderArtworkPage = (id) => {
       return <Nimbus />;
     case "rereality":
       return <ReReality />;
+    case "meetinghill":
+      return <MeetingHill />;
     default:
       return <ArtworkNotFound />;
   }

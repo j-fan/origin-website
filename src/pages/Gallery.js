@@ -112,6 +112,14 @@ const Gallery = ({ isVisible, direction }) => {
           linkText="➜ Artwork details"
           isLinkInternal
         />
+        <GalleryCard
+          title="Meeting Hill"
+          imageUrl="img/singularity.jpg"
+          creator="Pat Younis, Jordan East"
+          link={"/artwork?id=meetinghill"}
+          linkText="➜ Artwork details"
+          isLinkInternal
+        />
       </StyledDiv>
       <Spacer />
       <h2>Origin Virtual</h2>
