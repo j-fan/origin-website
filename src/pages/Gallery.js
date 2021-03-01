@@ -91,7 +91,7 @@ const Gallery = ({ isVisible, direction }) => {
         <GalleryCard
           title="Singularity"
           creator="Pat Younis, Jordan East, Dylan Marelic-Mcintyre"
-          imageUrl="img/singularity.jpg"
+          imageUrl="img/Singularity1.jpg"
           link={"/artwork?id=singularity"}
           linkText="➜ Artwork details"
           isLinkInternal
@@ -114,7 +114,7 @@ const Gallery = ({ isVisible, direction }) => {
         />
         <GalleryCard
           title="Meeting Hill"
-          imageUrl="img/singularity.jpg"
+          imageUrl="img/meetinghill.jpg"
           creator="Pat Younis, Jordan East"
           link={"/artwork?id=meetinghill"}
           linkText="➜ Artwork details"

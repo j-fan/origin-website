@@ -8,6 +8,7 @@ const Images = styled.div`
   align-items: center;
   img {
     max-width: 70%;
+    margin-bottom:5px;
   }
 `;
 
