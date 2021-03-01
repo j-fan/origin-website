@@ -158,7 +158,7 @@ const Gallery = ({ isVisible, direction }) => {
         />
         <GalleryCard
           title="Meeting Hill"
-          imageUrl="img/meetinghill.jpg"
+          imageUrl="img/meetingHill.jpg"
           creator="Pat Younis, Jordan East"
           link={"/artwork?id=meetinghill"}
           linkText="➜ Artwork details"

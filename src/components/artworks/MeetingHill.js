@@ -6,7 +6,7 @@ const MeetingHill = () => {
     <ArtworkPage
       title="Meeting Hill"
       artist="Pat Younis, Jordan East"
-      imageUrls={["img/MeetingHill.jpg","img/MeetingHillprogramming.jpg"]}
+      imageUrls={["img/meetingHill.jpg","img/MeetingHillprogramming.jpg"]}
       description={
         <div>
           Meeting Hill was created to be a place to share music, panels, interviews with local artists and collectives, DJ sets and other selected audio pieces.
