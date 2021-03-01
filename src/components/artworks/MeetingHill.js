@@ -28,7 +28,7 @@ const MeetingHill = () => {
       }
 
       date="2020"
-      medium="Unity, Arduino, OSC"
+      medium="Web"
     />
   );
 };

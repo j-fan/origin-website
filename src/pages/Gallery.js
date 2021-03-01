@@ -112,14 +112,6 @@ const Gallery = ({ isVisible, direction }) => {
           linkText="➜ Artwork details"
           isLinkInternal
         />
-        <GalleryCard
-          title="Meeting Hill"
-          imageUrl="img/meetinghill.jpg"
-          creator="Pat Younis, Jordan East"
-          link={"/artwork?id=meetinghill"}
-          linkText="➜ Artwork details"
-          isLinkInternal
-        />
       </StyledDiv>
       <Spacer />
       <h2>Origin Virtual</h2>
@@ -166,10 +158,11 @@ const Gallery = ({ isVisible, direction }) => {
         />
         <GalleryCard
           title="Meeting Hill"
-          imageUrl="img/meetingHill.jpg"
-          creator="Pat Younis Jordan East"
-          link={"http://tildevisual.tv/"}
-          description="Meeting Hill is a web based virtual hilltop, decorated with furniture and a sound system, where visitors can come to listen to a live curated online radio station."
+          imageUrl="img/meetinghill.jpg"
+          creator="Pat Younis, Jordan East"
+          link={"/artwork?id=meetinghill"}
+          linkText="➜ Artwork details"
+          isLinkInternal
         />
       </StyledDiv>
     </Page>
