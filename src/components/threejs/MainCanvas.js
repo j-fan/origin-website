@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import * as THREE from "three";
-import { OBJLoader2 } from "three/examples/jsm/loaders/OBJLoader2";
+import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
 import { makeNoise3D } from "open-simplex-noise";
 import {
@@ -129,7 +129,7 @@ const MainCanvas = ({ isVisible }) => {
       premultipliedAlpha: true,
     });
 
-    const objLoader = new OBJLoader2();
+    const objLoader = new OBJLoader();
     objLoader.load("resources/origin.obj", (object) => {
       object.traverse((child) => {
         if (child instanceof THREE.Mesh) {
