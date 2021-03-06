@@ -1,5 +1,12 @@
 import React from "react";
 import ArtworkPage from "../ArtworkPage";
+import styled from "styled-components";
+
+const CenteredDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
 
 const MeetingHill = () => {
   return (
@@ -22,8 +29,9 @@ const MeetingHill = () => {
           <br/>
           <br/>
 
-          <iframe src="https://player.vimeo.com/video/517996605" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-
+          <CenteredDiv>
+            <iframe src="https://player.vimeo.com/video/517996605" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </CenteredDiv>
         </div>
       }
 
