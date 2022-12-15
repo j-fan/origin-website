@@ -50,7 +50,7 @@ const StyledDiv = styled.div`
       top: 0;
       right: 0;
       margin-top: 12px;
-      filter: drop-shadow(4px 2px 2px rgb(0, 0, 0, 0.3));
+      filter: drop-shadow(2px 2px 0px rgb(0, 0, 0, 1));
       border-top: solid 3px #fff;
       max-width: 150px;
       text-align: right;
@@ -73,7 +73,11 @@ const LinkWithContent = ({ link, isLinkInternal, children }) => {
   if (isLinkInternal) {
     return <Link to={link}>{children}</Link>;
   } else {
-    return <a href={link}>{children}</a>;
+    return (
+      <a href={link} target="_blank" rel="noopener">
+        {children}
+      </a>
+    );
   }
 };
 
