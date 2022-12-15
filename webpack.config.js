@@ -21,7 +21,9 @@ module.exports = {
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
-    contentBase: "./docs",
+    static: {
+      directory: "./docs",
+    },
     hot: true,
     historyApiFallback: true,
   },
